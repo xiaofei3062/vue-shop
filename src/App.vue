@@ -29,4 +29,17 @@
   .van-button--normal {
     padding: 0 15px !important;
   }
+
+  .van-submit-bar__text {
+    padding-right: 0 !important;
+  }
+
+  .van-submit-bar__text span {
+    display: inline !important;
+    font-size: 15px !important;
+  }
+
+  .van-checkbox__label {
+    font-size: 15px !important;
+  }
 </style>

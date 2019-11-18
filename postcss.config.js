@@ -13,6 +13,12 @@ module.exports = {
       replace: true,
       mediaQuery: true,
       minPixelValue: 1
+    },
+    "cssnano": {
+      "cssnano-preset-advanced": {
+        zindex: false,
+        autoprefixer: false
+      }
     }
   }
 };
