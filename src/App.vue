@@ -18,7 +18,7 @@
 </script>
 
 <style>
-  @import "../public/css/base.css";
+  @import "assets/css/base.css";
 
   .container {
     width: 100%;

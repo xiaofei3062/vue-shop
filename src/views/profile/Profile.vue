@@ -56,7 +56,7 @@
 </script>
 
 <style scoped>
-  @import "../../../public/css/base.css";
+  @import "../../assets/css/base.css";
 
   .profile {
     width: 100%;

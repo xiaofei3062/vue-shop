@@ -81,7 +81,7 @@
 </script>
 
 <style scoped>
-  @import "../../../public/css/base.css";
+  @import "../../assets/css/base.css";
 
   .login {
     width: 100%;

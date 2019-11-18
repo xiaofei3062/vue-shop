@@ -59,7 +59,7 @@
 </script>
 
 <style scoped>
-  @import "../../../../public/css/base.css";
+  @import "../../../assets/css/base.css";
 
   .goods-list-box {
     width: 100%;
