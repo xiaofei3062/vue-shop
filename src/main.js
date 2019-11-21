@@ -13,6 +13,7 @@ import fastClick from "fastclick";
 import VueLazyLoad from "vue-lazyload";
 
 Vue.config.productionTip = false;
+
 Vue.use(Vant);
 // 使用自己封装的组件
 Vue.use(myToast);

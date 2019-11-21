@@ -108,7 +108,7 @@
 </script>
 
 <style scoped>
-  @import "../../../public/css/base.css";
+  @import "../../assets/css/base.css";
 
   .category-nav-bar {
     background-color: var(--color-tint);

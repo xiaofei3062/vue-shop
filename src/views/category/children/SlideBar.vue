@@ -47,7 +47,7 @@
 </script>
 
 <style scoped>
-  @import "../../../../public/css/base.css";
+  @import "../../../assets/css/base.css";
 
   .slide-bar {
     width: 100%;

@@ -31,7 +31,7 @@
 </script>
 
 <style scoped>
-  @import "../../../public/css/base.css";
+  @import "../../assets/css/base.css";
 
   .nav-bar {
     background-color: var(--color-tint);

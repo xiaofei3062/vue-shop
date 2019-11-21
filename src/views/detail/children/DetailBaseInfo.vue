@@ -43,7 +43,7 @@
 </script>
 
 <style scoped>
-  @import "../../../../public/css/base.css";
+  @import "../../../assets/css/base.css";
 
   .base-info {
     width: 100%;

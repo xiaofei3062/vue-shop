@@ -1,4 +1,4 @@
-@import "./normalize.min.css";
+@import "normalize.min.css";
 
 :root {
   --color-text: #666666;
@@ -22,7 +22,6 @@ body, html {
   height: 100%;
   -moz-user-select: none;
   -ms-user-select: none;
-  /* webkit是苹果浏览器引擎，tap点击，highlight背景高亮，color颜色，颜色用数值调节 */
   -webkit-user-select: none;
   user-select: none;
   color: var(--color-text);
