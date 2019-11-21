@@ -16,7 +16,8 @@
   padding: 0;
 }
 
-body, html {
+body,
+html {
   font-family: "Microsoft YaHei", sans-serif;
   width: 100%;
   height: 100%;
@@ -52,7 +53,7 @@ a {
   display: inline-block;
   width: 9px;
   height: 9px;
-  margin-left: .1rem;
+  margin-left: 0.1rem;
   transform: rotate(135deg);
   border-top: 1px solid #999999;
   border-left: 1px solid #999999;
@@ -66,4 +67,3 @@ a {
 .right {
   float: right;
 }
-

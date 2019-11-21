@@ -1,5 +1,5 @@
 module.exports = {
-  "plugins": {
+  plugins: {
     "postcss-import": {},
     "postcss-write-svg": {
       utf8: false
@@ -14,7 +14,7 @@ module.exports = {
       mediaQuery: true,
       minPixelValue: 1
     },
-    "cssnano": {
+    cssnano: {
       "cssnano-preset-advanced": {
         zindex: false,
         autoprefixer: false

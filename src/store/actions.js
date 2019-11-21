@@ -1,6 +1,5 @@
 export default {
   setCateGoryData({ state, commit }, data) {
-
     let list = JSON.parse(localStorage.getItem("cartList")) || [];
 
     if (list) {
@@ -19,6 +18,5 @@ export default {
     } else {
       commit("addToCart", data);
     }
-
   }
 };
