@@ -78,7 +78,14 @@
             message: "QQ号不能为空"
           });
         } else {
-          this.$axios.post("http://121.42.13.36/serve/register.php", this.$qs.stringify(this.formData)).then(res => {
+          this.$axios.post("http://121.42.13.36/serve/register.php",
+            this.$qs.stringify(this.formData),
+            {
+              headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+              }
+            }
+          ).then(res => {
             console.log(res);
             if (res.data.state === "Success") {
               this.$notify({
