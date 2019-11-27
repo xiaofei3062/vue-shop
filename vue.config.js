@@ -15,5 +15,17 @@ module.exports = {
         views: "@/views"
       }
     }
+  },
+  devServer: {
+    proxy: {
+      "/serve": {
+        target: "http://121.42.13.36",
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: {
+          "^/serve": "/serve"
+        }
+      }
+    }
   }
 };

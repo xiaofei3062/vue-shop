@@ -67,9 +67,9 @@ export default {
       } else {
         this.$axios
           .post(
-            "http://121.42.13.36/serve/login.php",
-            this.$qs.stringify(this.formData)
-          )
+          "/serve/login.php",
+          this.$qs.stringify(this.formData)
+        )
           .then(res => {
             if (res.data.state === "Success") {
               let obj = {

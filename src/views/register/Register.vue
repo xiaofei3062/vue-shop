@@ -114,14 +114,14 @@ export default {
       } else {
         this.$axios
           .post(
-            "http://121.42.13.36/serve/register.php",
-            this.$qs.stringify(this.formData),
-            {
-              headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-              }
+          "/serve/register.php",
+          this.$qs.stringify(this.formData),
+          {
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded"
             }
-          )
+          }
+        )
           .then(res => {
             console.log(res);
             if (res.data.state === "Success") {
