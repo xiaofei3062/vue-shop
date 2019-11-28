@@ -9,7 +9,7 @@
 </template>
 
 <script>
-  import TabBar from "@/components/common/tabbar/TabBar";
+import TabBar from "@/components/common/tabbar/TabBar";
 
 export default {
   name: "App",
@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style>
-  @import "./assets/css/base.css";
+@import "./assets/css/base.css";
 
 .container {
   width: 100%;
