@@ -1,24 +1,24 @@
 <template>
   <div class="profile-list">
     <div class="profile-list-item">
-      <img alt="" src="../../../assets/img/profile/message.png" />
+      <img alt="" src="@/assets/img/profile/message.png" />
       <span>我的消息</span>
     </div>
     <div class="profile-list-item">
-      <img alt="" src="../../../assets/img/profile/jifen.png" />
+      <img alt="" src="@/assets/img/profile/jifen.png" />
       <span>积分商城</span>
     </div>
     <div class="profile-list-item">
-      <img alt="" src="../../../assets/img/profile/vip.png" />
+      <img alt="" src="@/assets/img/profile/vip.png" />
       <span>会员卡</span>
     </div>
     <div class="line"></div>
     <div class="profile-list-item">
-      <img alt="" src="../../../assets/img/profile/gouwuche.png" />
+      <img alt="" src="@/assets/img/profile/gouwuche.png" />
       <span>我的购物车</span>
     </div>
     <div class="profile-list-item">
-      <img alt="" src="../../../assets/img/profile/download.png" />
+      <img alt="" src="@/assets/img/profile/download.png" />
       <span>下载购物APP</span>
     </div>
   </div>

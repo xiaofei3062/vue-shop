@@ -6,37 +6,37 @@
     <slide-bar
       :slide-bar-list="categoryList"
       @slideBarItemClick="slideBarItemClick"
-    ></slide-bar>
+    />
     <scroll class="scroll-height">
-      <subcategory :category-list="subcategoryList"></subcategory>
-      <tab-control :titles="titleList" @tabClick="tabClick"></tab-control>
-      <goods-list :goods="categoryDetailList"></goods-list>
+      <subcategory :category-list="subcategoryList" />
+      <tab-control :titles="titleList" @tabClick="tabClick" />
+      <goods-list :goods="categoryDetailList" />
     </scroll>
   </div>
 </template>
 
 <script>
-import SlideBar from "./children/SlideBar";
-import NavBar from "../../components/common/navbar/NavBar";
-import {
-  getCategory,
-  getCategoryDetail,
-  getSubcategory
-} from "../../network/category";
-import Subcategory from "./children/Subcategory";
-import Scroll from "../../components/common/scroll/Scroll";
-import TabControl from "../../components/content/tabControl/TabControl";
-import GoodsList from "../../components/content/goods/GoodsList";
+  import SlideBar from "./children/SlideBar";
+  import NavBar from "@/components/common/navbar/NavBar";
+  import {
+    getCategory,
+    getCategoryDetail,
+    getSubcategory
+  } from "@/network/category";
+  import Subcategory from "./children/Subcategory";
+  import Scroll from "@/components/common/scroll/Scroll";
+  import TabControl from "@/components/content/tabControl/TabControl";
+  import GoodsList from "@/components/content/goods/GoodsList";
 
-export default {
-  name: "Category",
-  data() {
-    return {
-      categoryList: [],
-      subcategoryList: [],
-      categoryDetailList: [],
-      titleList: ["流行", "新款", "精选"],
-      curMiniWallkey: "10062603",
+  export default {
+    name: "Category",
+    data() {
+      return {
+        categoryList: [],
+        subcategoryList: [],
+        categoryDetailList: [],
+        titleList: ["流行", "新款", "精选"],
+        curMiniWallkey: "10062603",
       keyList: [],
       keyList2: [],
       dataList: [],

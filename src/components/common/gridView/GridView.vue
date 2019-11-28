@@ -1,6 +1,6 @@
 <template>
   <div class="grid-view" ref="gridView">
-    <slot></slot>
+    <slot />
   </div>
 </template>
 

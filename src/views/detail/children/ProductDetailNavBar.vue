@@ -2,7 +2,7 @@
   <div class="product-detail-nav-bar">
     <nav-bar>
       <div @click="backHomePage" class="back-img" slot="left">
-        <img alt="" src="../../../assets/img/common/back.svg" />
+        <img alt="" src="@/assets/img/common/back.svg" />
       </div>
       <div class="title" slot="center">
         <span
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import NavBar from "../../../components/common/navbar/NavBar";
+  import NavBar from "@/components/common/navbar/NavBar";
 
 export default {
   name: "ProductDetailNavBar",

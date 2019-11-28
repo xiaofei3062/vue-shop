@@ -68,7 +68,7 @@
 </template>
 
 <script>
-import NavBar from "../../components/common/navbar/NavBar";
+import NavBar from "@/components/common/navbar/NavBar";
 
 export default {
   name: "Register",
@@ -114,7 +114,7 @@ export default {
       } else {
         this.$axios
           .post(
-          "/serve/register.php",
+          "http://121.42.13.36:8081/serve/register.php",
           this.$qs.stringify(this.formData),
           {
             headers: {

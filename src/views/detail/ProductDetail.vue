@@ -3,44 +3,35 @@
     <product-detail-nav-bar
       @titleItemClick="titleItemClick"
       ref="detailNavBar"
-    ></product-detail-nav-bar>
+    />
     <scroll
       :probe-type="3"
       @backTopScroll="detailScroll"
       class="scroll-height"
       ref="scroll"
     >
-      <detail-swiper
-        :swiper-list="topImages"
-        class="detail-set-scroll"
-      ></detail-swiper>
-      <detail-base-info :goods="goods"></detail-base-info>
-      <detail-shop-info :shop="shops"></detail-shop-info>
-      <detail-images-info
-        :images-info="detailsInfo"
-        @imgLoad="imgLoad"
-      ></detail-images-info>
-      <detail-param-info
-        :param-info="paramsInfo"
-        class="detail-set-scroll"
-      ></detail-param-info>
+      <detail-swiper :swiper-list="topImages" class="detail-set-scroll" />
+      <detail-base-info :goods="goods" />
+      <detail-shop-info :shop="shops" />
+      <detail-images-info :images-info="detailsInfo" @imgLoad="imgLoad" />
+      <detail-param-info :param-info="paramsInfo" class="detail-set-scroll" />
       <detail-comment-info
         :comment-info="commentInfo"
         class="detail-set-scroll"
-      ></detail-comment-info>
+      />
       <goods-list
         :goods="recommendList"
         :is-recommend="true"
         class="detail-set-scroll"
-      ></goods-list>
+      />
     </scroll>
 
     <!-- 回到顶部,监听组件的原生事件必须要用native修饰符变成原生组件 -->
     <transition name="scroll">
-      <back-top @click.native="backTop" v-show="curPosition >= 1500"></back-top>
+      <back-top @click.native="backTop" v-show="curPosition >= 1500" />
     </transition>
 
-    <detail-bottom-bar @addToCart="addToCart"></detail-bottom-bar>
+    <detail-bottom-bar @addToCart="addToCart" />
   </div>
 </template>
 
@@ -49,13 +40,13 @@ import ProductDetailNavBar from "./children/ProductDetailNavBar";
 import DetailSwiper from "./children/DetailSwiper";
 import DetailBaseInfo from "./children/DetailBaseInfo";
 import DetailShopInfo from "./children/DetailShopInfo";
-import Scroll from "../../components/common/scroll/Scroll";
+import Scroll from "@/components/common/scroll/Scroll";
 import DetailImagesInfo from "./children/DetailImagesInfo";
 import DetailParamInfo from "./children/DetailParamInfo";
 import DetailCommentInfo from "./children/DetailCommentInfo";
-import GoodsList from "../../components/content/goods/GoodsList";
+import GoodsList from "@/components/content/goods/GoodsList";
 import DetailBottomBar from "./children/DetailBottomBar";
-import BackTop from "../../components/content/backTop/BackTop";
+import BackTop from "@/components/content/backTop/BackTop";
 
 import {
   getProductDetail,
@@ -63,8 +54,8 @@ import {
   Goods,
   GoodsParams,
   Shop
-} from "../../network/productDetail";
-import { backTopMixin, imgListenerMixin } from "../../common/mixin";
+} from "@/network/productDetail";
+import { backTopMixin, imgListenerMixin } from "@/common/mixin";
 
 export default {
   name: "ProductDetail",

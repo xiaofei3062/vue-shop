@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import NavBar from "../../components/common/navbar/NavBar";
+import NavBar from "@/components/common/navbar/NavBar";
 
 export default {
   name: "Login",
@@ -67,7 +67,7 @@ export default {
       } else {
         this.$axios
           .post(
-          "/serve/login.php",
+          "http://121.42.13.36:8081/serve/login.php",
           this.$qs.stringify(this.formData)
         )
           .then(res => {

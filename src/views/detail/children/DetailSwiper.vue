@@ -37,10 +37,6 @@ export default {
 </script>
 
 <style scoped>
-/**
-      修改vant轮播图指示点颜色
-      deep深度作用域只能在scoped使用
-      */
 .swiper-list /deep/ .van-swipe__indicator {
   width: 10px;
   height: 10px;

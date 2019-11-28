@@ -10,20 +10,20 @@
         :username="username"
         @goLogin="goLogin"
         ref="login"
-      ></login>
-      <money></money>
+      />
+      <money />
       <div class="line"></div>
-      <profile-list></profile-list>
+      <profile-list />
     </scroll>
   </div>
 </template>
 
 <script>
-import NavBar from "../../components/common/navbar/NavBar";
-import Login from "./children/Login";
+  import NavBar from "@/components/common/navbar/NavBar";
+  import Login from "./children/Login";
 import Money from "./children/Money";
-import ProfileList from "./children/profileList";
-import Scroll from "../../components/common/scroll/Scroll";
+  import ProfileList from "./children/profileList";
+  import Scroll from "@/components/common/scroll/Scroll";
 
 export default {
   name: "Profile",

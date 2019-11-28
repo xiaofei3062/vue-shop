@@ -1,15 +1,15 @@
 <template>
   <div class="container">
     <keep-alive exclude="ProductDetail,Cart">
-      <router-view></router-view>
+      <router-view />
     </keep-alive>
     <!-- 控制tabBar显示和隐藏 -->
-    <tab-bar v-show="$store.getters.tabBarShow"></tab-bar>
+    <tab-bar v-show="$store.getters.tabBarShow" />
   </div>
 </template>
 
 <script>
-import TabBar from "./components/common/tabbar/TabBar";
+  import TabBar from "@/components/common/tabbar/TabBar";
 
 export default {
   name: "App",
@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style>
-@import "assets/css/base.css";
+  @import "./assets/css/base.css";
 
 .container {
   width: 100%;

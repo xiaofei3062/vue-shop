@@ -11,7 +11,7 @@
       class="home-tab-control"
       ref="tabControl"
       v-show="isShowTab"
-    ></tab-control>
+    />
 
     <!-- BScroll滚动区域 -->
     <scroll
@@ -23,52 +23,52 @@
       ref="scroll"
     >
       <!-- 轮播图 -->
-      <my-swiper :swiper-list="banners" @swiperLoad="swiperLoad"></my-swiper>
+      <my-swiper :swiper-list="banners" @swiperLoad="swiperLoad" />
       <!-- 推荐分类 -->
-      <recommend-view :recommends="recommends"></recommend-view>
+      <recommend-view :recommends="recommends" />
       <!-- 本周流行 -->
-      <feature-view></feature-view>
+      <feature-view />
       <!-- tabBarControl -->
       <tab-control
         :titles="tabControlTitles"
         @tabClick="tabClick"
         class="home-tab-control"
         ref="tabControl2"
-      ></tab-control>
+      />
       <!-- 商品展示 -->
-      <goods-list :goods="goods[curType].list"></goods-list>
+      <goods-list :goods="goods[curType].list" />
     </scroll>
 
     <!-- 回到顶部,监听组件的原生事件必须要用native修饰符变成原生组件 -->
     <transition name="scroll">
-      <back-top @click.native="backTop" v-show="curPosition >= 1500"></back-top>
+      <back-top @click.native="backTop" v-show="curPosition >= 1500" />
     </transition>
   </div>
 </template>
 
 <script>
-import NavBar from "../../components/common/navbar/NavBar";
-import Scroll from "../../components/common/scroll/Scroll";
-import TabControl from "../../components/content/tabControl/TabControl";
-import GoodsList from "../../components/content/goods/GoodsList";
-import BackTop from "../../components/content/backTop/BackTop";
+  import NavBar from "@/components/common/navbar/NavBar";
+  import Scroll from "@/components/common/scroll/Scroll";
+  import TabControl from "@/components/content/tabControl/TabControl";
+  import GoodsList from "@/components/content/goods/GoodsList";
+  import BackTop from "@/components/content/backTop/BackTop";
 
-import MySwiper from "../../components/common/swiper/MySwiper";
-import RecommendView from "./children/RecommendView";
-import FeatureView from "./children/FeatureView";
+  import MySwiper from "@/components/common/swiper/MySwiper";
+  import RecommendView from "./children/RecommendView";
+  import FeatureView from "./children/FeatureView";
 
-import { getHomeGoodsData, getHomeMultiData } from "../../network/home";
-import { backTopMixin, imgListenerMixin } from "../../common/mixin";
+  import { getHomeGoodsData, getHomeMultiData } from "@/network/home";
+  import { backTopMixin, imgListenerMixin } from "@/common/mixin";
 
-export default {
-  name: "Home",
-  components: {
-    NavBar,
-    Scroll,
-    TabControl,
-    GoodsList,
-    BackTop,
-    MySwiper,
+  export default {
+    name: "Home",
+    components: {
+      NavBar,
+      Scroll,
+      TabControl,
+      GoodsList,
+      BackTop,
+      MySwiper,
     RecommendView,
     FeatureView
   },

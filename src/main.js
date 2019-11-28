@@ -6,20 +6,16 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
-// 引入自己封装的组件
-import myToast from "./components/common/toast";
 // 引入vue的懒加载
 import VueLazyLoad from "vue-lazyload";
 
 Vue.config.productionTip = false;
 
 Vue.use(Vant);
-// 使用自己封装的组件
-Vue.use(myToast);
 // 使用vue的懒加载
 Vue.use(VueLazyLoad, {
   // 未加载的占位图片
-  loading: require("./assets/img/common/placeholder.png")
+  loading: require("@/assets/img/common/placeholder.png")
 });
 
 // 全局实例化$bus事件总线

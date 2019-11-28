@@ -4,10 +4,7 @@
       <!-- 循环部分 -->
       <div :key="index" class="shop-item" v-for="(item, index) in cartList">
         <div class="item-selector">
-          <van-checkbox
-            @change="itemChange"
-            v-model="item.checked"
-          ></van-checkbox>
+          <van-checkbox @change="itemChange" v-model="item.checked" />
         </div>
         <div class="item-img">
           <img :src="item.image" alt="商品图片" />
@@ -41,8 +38,8 @@
 </template>
 
 <script>
-import Scroll from "../../../components/common/scroll/Scroll";
-import { mapGetters, mapMutations } from "vuex";
+  import Scroll from "@/components/common/scroll/Scroll";
+  import { mapGetters, mapMutations } from "vuex";
 
 export default {
   name: "CartList",

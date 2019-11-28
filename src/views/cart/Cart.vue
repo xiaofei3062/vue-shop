@@ -9,13 +9,13 @@
       </div>
     </nav-bar>
     <!-- 购物车列表 -->
-    <cart-list></cart-list>
+    <cart-list />
   </div>
 </template>
 
 <script>
-import NavBar from "../../components/common/navbar/NavBar";
-import CartList from "./children/CartList";
+  import NavBar from "@/components/common/navbar/NavBar";
+  import CartList from "./children/CartList";
 
 import { mapGetters } from "vuex";
 

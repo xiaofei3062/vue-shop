@@ -1,13 +1,13 @@
 <template>
   <div class="nav-bar">
     <div class="left">
-      <slot name="left"></slot>
+      <slot name="left" />
     </div>
     <div class="center">
-      <slot name="center"></slot>
+      <slot name="center" />
     </div>
     <div class="right">
-      <slot name="right"></slot>
+      <slot name="right" />
     </div>
   </div>
 </template>

@@ -2,12 +2,7 @@
   <div class="login">
     <van-uploader :after-read="afterRead">
       <div class="user-pic">
-        <van-image
-          :src="defaultPic"
-          class="user-pic-img"
-          fit="cover"
-          round
-        ></van-image>
+        <van-image :src="defaultPic" class="user-pic-img" fit="cover" round />
       </div>
     </van-uploader>
     <div @click="curLogin ? '' : goLogin()" class="user-info">
@@ -34,7 +29,7 @@ export default {
   name: "Login",
   data() {
     return {
-      defaultPic: require("../../../assets/img/profile/user.png")
+      defaultPic: require("@/assets/img/profile/user.png")
     };
   },
   props: {

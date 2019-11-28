@@ -2,15 +2,15 @@
   <div class="bottom-bar">
     <div class="bar-item bar-left">
       <div>
-        <i class="icon service"></i>
+        <i class="icon service" />
         <span class="text">客服</span>
       </div>
       <div>
-        <i class="icon shop"></i>
+        <i class="icon shop" />
         <span class="text">店铺</span>
       </div>
       <div>
-        <i class="icon select"></i>
+        <i class="icon select" />
         <span class="text">收藏</span>
       </div>
     </div>

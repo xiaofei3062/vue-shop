@@ -4,7 +4,7 @@
       <div class="header-title">用户评价</div>
       <div class="header-more">
         更多
-        <i class="arrow-right"></i>
+        <i class="arrow-right" />
       </div>
     </div>
     <div class="info-user">
@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import { formatDate } from "common/utils";
+  import { formatDate } from "@/common/utils";
 
 export default {
   name: "DetailCommentInfo",
