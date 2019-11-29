@@ -3,6 +3,13 @@ module.exports = {
   productionSourceMap: false,
   // 打包后使用相对路径,方便服务器上传多个项目
   publicPath: "./",
+  // 打包后生成html的引号
+  chainWebpack: config => {
+    config.plugin("html").tap(args => {
+      args[0].minify = false;
+      return args;
+    });
+  },
   configureWebpack: {
     resolve: {
       // 配置路径别名
