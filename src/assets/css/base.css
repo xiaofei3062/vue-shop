@@ -1,16 +1,6 @@
 @import "normalize.min.css";
 
-:root {
-  --color-text: #666666;
-  --color-high-text: #ff5777;
-  --color-tint: #ff8198;
-  --color-background: #ffffff;
-  --line-height: 1.5;
-}
-
-*,
-*:before,
-*:after {
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -18,15 +8,12 @@
 
 body,
 html {
-  font-family: "Microsoft YaHei", sans-serif;
+  font-family: Arial, "Microsoft YaHei", sans-serif;
   width: 100%;
   height: 100%;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-select: none;
   user-select: none;
-  color: var(--color-text);
-  background: var(--color-background);
+  color: #666666;
+  background: #ffffff;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -38,15 +25,9 @@ a {
 .clear-fix:after {
   font-size: 0;
   display: block;
-  visibility: hidden;
   clear: both;
-  width: 0;
   height: 0;
   content: "";
-}
-
-.clear-fix {
-  *zoom: 1;
 }
 
 .arrow-right {

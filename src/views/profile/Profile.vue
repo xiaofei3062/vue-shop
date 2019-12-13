@@ -57,17 +57,15 @@ export default {
 </script>
 
 <style scoped>
-@import "../../assets/css/base.css";
-
 .profile {
   width: 100%;
   height: 100%;
 }
 
 .nav-bar {
-  background-color: var(--color-tint);
-  color: white;
   font-weight: 600;
+  color: white;
+  background-color: #ff8198;
 }
 
 .line {

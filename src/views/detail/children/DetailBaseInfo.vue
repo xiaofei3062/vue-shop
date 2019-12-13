@@ -47,8 +47,6 @@ export default {
 </script>
 
 <style scoped>
-@import "../../../assets/css/base.css";
-
 .base-info {
   width: 100%;
   margin-top: 15px;
@@ -68,7 +66,7 @@ export default {
 
 .info-price .n-price {
   font-size: 24px;
-  color: var(--color-high-text);
+  color: #ff5777;
 }
 
 .info-price .o-price {
@@ -79,15 +77,15 @@ export default {
 
 .info-price .discount {
   font-size: 12px;
-  padding: 3px 6px;
-  color: #ffffff;
-  background-color: var(--color-high-text);
-  border-radius: 8px;
-  margin-left: 5px;
-
-  /*让元素上浮一些: 使用相对定位即可*/
   position: relative;
   top: -4px;
+  margin-left: 5px;
+  padding: 3px 6px;
+  color: #ffffff;
+
+  /*让元素上浮一些: 使用相对定位即可*/
+  border-radius: 8px;
+  background-color: #ff5777;
 }
 
 .info-other {

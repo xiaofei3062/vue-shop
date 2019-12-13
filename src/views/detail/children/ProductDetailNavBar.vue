@@ -44,8 +44,6 @@ export default {
 </script>
 
 <style scoped>
-@import "../../../assets/css/base.css";
-
 .title {
   display: flex;
   align-items: center;
@@ -58,7 +56,7 @@ export default {
 }
 
 .active {
-  color: var(--color-high-text);
+  color: #ff5777;
 }
 
 .back-img {

@@ -41,15 +41,15 @@
   import Scroll from "@/components/common/scroll/Scroll";
   import { mapGetters, mapMutations } from "vuex";
 
-export default {
-  name: "CartList",
-  components: { Scroll },
-  data() {
-    return {
-      checkedAll: false
-    };
-  },
-  computed: {
+  export default {
+    name: "CartList",
+    components: { Scroll },
+    data() {
+      return {
+        checkedAll: false
+      };
+    },
+    computed: {
     ...mapGetters(["cartList", "cartListLength"]),
     // 购物车总价
     totalPrice() {
@@ -203,7 +203,7 @@ export default {
 }
 
 .info-bottom .item-price {
-  color: orangered;
+  color: #ff4500;
 }
 
 /deep/ .checked-all {

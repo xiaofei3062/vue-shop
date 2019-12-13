@@ -38,8 +38,6 @@ export default {
 </script>
 
 <style scoped>
-@import "../../../assets/css/base.css";
-
 .tab-control {
   display: flex;
   text-align: center;
@@ -58,10 +56,10 @@ export default {
 }
 
 .active {
-  color: var(--color-high-text);
+  color: #ff5777;
 }
 
 .active span {
-  border-bottom: 2px solid var(--color-high-text);
+  border-bottom: 2px solid #ff5777;
 }
 </style>

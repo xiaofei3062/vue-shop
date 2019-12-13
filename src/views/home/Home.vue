@@ -161,16 +161,14 @@
 </script>
 
 <style scoped>
-@import "../../assets/css/base.css";
-
 .home {
   position: relative;
   height: 100%;
 }
 
 .home .home-nav {
-  background-color: var(--color-tint);
   color: white;
+  background-color: #ff8198;
 }
 
 /* 导航吸顶 */

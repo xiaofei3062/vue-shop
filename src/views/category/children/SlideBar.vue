@@ -49,8 +49,6 @@ export default {
 </script>
 
 <style scoped>
-@import "../../../assets/css/base.css";
-
 .slide-bar {
   width: 100%;
 }
@@ -77,8 +75,8 @@ export default {
 
 .slide-bar-item.active {
   font-weight: 700;
-  color: var(--color-high-text);
+  color: #ff5777;
+  border-left: 3px solid #ff5777;
   background-color: #ffffff;
-  border-left: 3px solid var(--color-high-text);
 }
 </style>

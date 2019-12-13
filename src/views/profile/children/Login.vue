@@ -67,16 +67,14 @@ export default {
 </script>
 
 <style scoped>
-@import "../../../assets/css/base.css";
-
 .login {
-  width: 100%;
-  height: 90px;
-  background-color: var(--color-tint);
+  position: relative;
   display: flex;
   align-items: center;
+  width: 100%;
+  height: 90px;
   padding: 0 20px;
-  position: relative;
+  background-color: #ff8198;
 }
 
 .user-pic {

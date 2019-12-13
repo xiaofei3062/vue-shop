@@ -17,6 +17,7 @@ function padLeftZero(str) {
 
 // 时间格式化
 export function formatDate(date, fmt) {
+
   // 获取年份
   if (/(y+)/.test(fmt)) {
     fmt = fmt.replace(

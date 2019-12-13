@@ -149,16 +149,14 @@ export default {
 </script>
 
 <style scoped>
-@import "../../assets/css/base.css";
-
 .register {
   width: 100%;
   color: #333333;
 }
 
 .login-nav {
-  background-color: var(--color-tint);
   color: white;
+  background-color: #ff8198;
 }
 
 .login-item {

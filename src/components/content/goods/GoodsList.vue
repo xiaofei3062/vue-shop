@@ -63,8 +63,6 @@ export default {
 </script>
 
 <style scoped>
-@import "../../../assets/css/base.css";
-
 .goods-list-box {
   width: 100%;
 }
@@ -113,8 +111,8 @@ export default {
 }
 
 .goods-info .price {
-  color: var(--color-high-text);
   margin-right: 30px;
+  color: #ff5777;
 }
 
 .goods-info .collect {
@@ -122,12 +120,12 @@ export default {
 }
 
 .goods-info .collect::before {
-  content: "";
   position: absolute;
-  left: -15px;
   top: 0;
+  left: -15px;
   width: 14px;
   height: 14px;
-  background: url("../../../assets/img/common/collect.svg") 0 0/14px 14px;
+  content: "";
+  background: url("~assets/img/common/collect.svg") 0 0/14px 14px;
 }
 </style>
