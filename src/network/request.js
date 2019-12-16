@@ -7,14 +7,13 @@ Vue.use(Toast);
 Vue.prototype.$axios = axios;
 Vue.prototype.$qs = qs;
 
-const url = "http://106.54.54.237:8000/api/v1";
-const url2 = "http://123.207.32.32:8000/api/v2";
+const url = "http://106.54.54.237:8000/api/v1" || "http://123.207.32.32:8000/api/v2";
 
 // 导出封装好的axios
 export function request(config) {
   // 1、创建axios实例
   const instance = axios.create({
-    baseURL: url || url2
+    baseURL: url
   });
 
   // 2、axios的请求拦截器
