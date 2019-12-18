@@ -4,7 +4,7 @@ module.exports = {
     "postcss-preset-env": {},
     "postcss-pxtorem": {
       rootValue: 37.5,
-      unitPrecision: 10,
+      unitPrecision: 5,
       propList: ["*"],
       selectorBlackList: [".ignore", ".hairlines"],
       replace: true,
