@@ -1,13 +1,11 @@
-import { request } from "./request";
-
 export function getHomeMultiData() {
-  return request({
+  return axios({
     url: "/home/multidata"
   });
 }
 
 export function getHomeGoodsData(type, page) {
-  return request({
+  return axios({
     url: "/home/data",
     params: { type, page }
   });

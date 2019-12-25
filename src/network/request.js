@@ -1,49 +1,42 @@
-import Vue from "vue";
 import axios from "axios";
 import qs from "qs";
 import { Toast } from "vant";
 
-Vue.use(Toast);
-Vue.prototype.$axios = axios;
-Vue.prototype.$qs = qs;
+const url = "http://106.54.54.237:8000/api/w1";
+const url2 = "http://123.207.32.32:8000/api/w2";
 
-const url = "http://106.54.54.237:8000/api/v1" || "http://123.207.32.32:8000/api/v2";
+let config = {
+  baseURL: url || url2
+};
 
-// 导出封装好的axios
-export function request(config) {
-  // 1、创建axios实例
-  const instance = axios.create({
-    baseURL: url
-  });
+const _axios = axios.create(config);
 
-  // 2、axios的请求拦截器
-  instance.interceptors.request.use(
-    req => {
-      Toast.loading({
-        // loading的时候禁止点击
-        forbidClick: true,
-        message: "加载中..."
-      });
-      return req;
-    },
-    err => {
-      return Promise.reject(err);
-    }
-  );
+// 请求拦截
+_axios.interceptors.request.use(
+  req => {
+    Toast.loading({
+      forbidClick: true,
+      message: "加载中..."
+    });
+    return req;
+  },
+  err => {
+    return Promise.reject(err);
+  }
+);
 
-  // 3、axios的响应拦截器
-  instance.interceptors.response.use(
-    res => {
-      // 保证最少500毫秒的加载时间
-      setTimeout(() => {
-        Toast.clear();
-      }, 500);
-      return res.data;
-    },
-    err => {
-      return Promise.reject(err);
-    }
-  );
+// 响应拦截
+_axios.interceptors.response.use(
+  res => {
+    Toast.clear();
+    return res.data;
+  },
+  err => {
+    Toast.clear();
+    return Promise.reject(err);
+  }
+);
 
-  return instance(config);
-}
+// 全局注册axios qs
+window.axios = _axios;
+window.qs = qs;

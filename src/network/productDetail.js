@@ -1,14 +1,12 @@
-import { request } from "./request";
-
 export function getProductDetail(iid) {
-  return request({
+  return axios({
     url: "/detail",
     params: { iid }
   });
 }
 
 export function getRecommend() {
-  return request({
+  return axios({
     url: "/recommend"
   });
 }
