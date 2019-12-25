@@ -2,6 +2,7 @@ import Vue from "vue";
 import "./network/request";
 import Vant from "vant";
 import "vant/lib/index.css";
+import "./assets/css/base.css";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
