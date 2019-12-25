@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <keep-alive exclude="ProductDetail,Cart">
+    <keep-alive exclude="ProductDetail">
       <router-view />
     </keep-alive>
     <!-- 控制tabBar显示和隐藏 -->

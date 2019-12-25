@@ -126,10 +126,10 @@
 
 .scroll-height {
   position: fixed;
-  left: 100px;
-  right: 0;
   top: 44px;
-  bottom: 49px;
+  right: 0;
+  bottom: 50px;
+  left: 100px;
   overflow: hidden;
 }
 </style>

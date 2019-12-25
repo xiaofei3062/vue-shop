@@ -221,8 +221,8 @@ export default {
 .scroll-height {
   position: absolute;
   top: 44px;
-  bottom: 49px;
   right: 0;
+  bottom: 50px;
   left: 0;
   overflow: hidden;
   width: 100%;

@@ -1,68 +1,65 @@
 <template>
   <div class="profile-list">
     <div class="profile-list-item">
-      <img alt="" src="@/assets/img/profile/message.png" />
+      <van-icon class="profile-list-icon" name="manager" />
       <span>我的消息</span>
     </div>
     <div class="profile-list-item">
-      <img alt="" src="@/assets/img/profile/jifen.png" />
+      <van-icon class="profile-list-icon" name="point-gift" />
       <span>积分商城</span>
     </div>
     <div class="profile-list-item">
-      <img alt="" src="@/assets/img/profile/vip.png" />
-      <span>会员卡</span>
+      <van-icon class="profile-list-icon" name="gem" />
+      <span style="border-bottom: 0;">会员卡</span>
     </div>
     <div class="line"></div>
     <div class="profile-list-item">
-      <img alt="" src="@/assets/img/profile/gouwuche.png" />
+      <van-icon class="profile-list-icon" name="shopping-cart" />
       <span>我的购物车</span>
     </div>
     <div class="profile-list-item">
-      <img alt="" src="@/assets/img/profile/download.png" />
-      <span>下载购物APP</span>
+      <van-icon class="profile-list-icon" name="good-job" />
+      <span>点赞购物APP</span>
     </div>
   </div>
 </template>
 
 <script>
-export default {
-  name: "profileList"
-};
+  export default {
+    name: "profileList"
+  };
 </script>
 
 <style scoped>
-.profile-list {
-  width: 100%;
-}
+  .profile-list {
+    width: 100%;
+  }
 
-.profile-list-item {
-  display: flex;
-  align-items: center;
-  height: 45px;
-  padding-left: 20px;
-}
+  .profile-list-item {
+    line-height: 45px;
+    display: flex;
+    align-items: center;
+    height: 45px;
+    padding-left: 20px;
+  }
 
-.profile-list-item img {
-  margin-right: 10px;
-  width: 24px;
-  height: 24px;
-}
+  .profile-list-item .profile-list-icon {
+    font-size: 24px;
+    display: inline-block;
+    margin-right: 7px;
+  }
 
-.profile-list-item span {
-  width: 100%;
-  line-height: 45px;
-  font-size: 15px;
-  color: #333333;
-  border-bottom: 1px solid #eeeeee;
-}
+  .profile-list-item span {
+    font-size: 16px;
+    display: inline-block;
+    width: 100%;
+    color: #333333;
+    border-bottom: 1px solid #dddddd;
+  }
 
-.profile-list-item span:nth-of-type(3) {
-  border-bottom: 0;
-}
-
-.line {
-  width: 100%;
-  height: 10px;
-  background-color: #eeeeee;
-}
+  .line {
+    width: 100%;
+    height: 10px;
+    background-color: #eeeeee;
+  }
 </style>
