@@ -40,6 +40,7 @@
 
 <script>
   import NavBar from "@/components/common/navbar/NavBar";
+  import Axios from "axios";
 
   export default {
     name: "Login",
@@ -65,9 +66,9 @@
             message: "密码不能为空"
           });
         } else {
-          axios
+          Axios
           .post(
-            "http://121.42.13.36:8081/serve/login.php",
+            "/serve/login.php",
             qs.stringify(this.formData)
           )
           .then(res => {

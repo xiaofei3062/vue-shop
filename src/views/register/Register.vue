@@ -69,6 +69,7 @@
 
 <script>
   import NavBar from "@/components/common/navbar/NavBar";
+  import Axios from "axios";
 
   export default {
     name: "Register",
@@ -112,9 +113,9 @@
             message: "QQ号不能为空"
           });
         } else {
-          axios
+          Axios
           .post(
-            "http://121.42.13.36:8081/serve/register.php",
+            "/serve/register.php",
             qs.stringify(this.formData),
             {
               headers: {
