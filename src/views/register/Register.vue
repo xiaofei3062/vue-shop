@@ -69,7 +69,6 @@
 
 <script>
   import NavBar from "@/components/common/navbar/NavBar";
-  import Axios from "axios";
 
   export default {
     name: "Register",
@@ -113,9 +112,9 @@
             message: "QQ号不能为空"
           });
         } else {
-          Axios
+          axios
           .post(
-            "/serve/register.php",
+            "http://121.42.13.36/register.php",
             qs.stringify(this.formData),
             {
               headers: {
@@ -125,7 +124,7 @@
           )
           .then(res => {
             console.log(res);
-            if (res.data.state === "Success") {
+            if (res.state === "Success") {
               this.$notify({
                 type: "success",
                 message: "恭喜您,注册成功,正在跳转至登录页"

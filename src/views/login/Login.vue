@@ -40,7 +40,6 @@
 
 <script>
   import NavBar from "@/components/common/navbar/NavBar";
-  import Axios from "axios";
 
   export default {
     name: "Login",
@@ -66,16 +65,17 @@
             message: "密码不能为空"
           });
         } else {
-          Axios
+          axios
           .post(
-            "/serve/login.php",
+            "http://121.42.13.36/login.php",
             qs.stringify(this.formData)
           )
           .then(res => {
-            if (res.data.state === "Success") {
+            console.log(res);
+            if (res.state === "Success") {
               let obj = {
-                username: res.data.username,
-                phone: res.data.phone
+                username: res.username,
+                phone: res.phone
               };
               this.$notify({
                 type: "success",

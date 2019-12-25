@@ -18,18 +18,5 @@ module.exports = {
         views: "@/views"
       }
     }
-  },
-  devServer: {
-    // 配置跨域
-    proxy: {
-      "/serve": {
-        target: "http://121.42.13.36:8081",
-        ws: true,
-        changOrigin: true,
-        pathRewrite: {
-          "^/serve": "/serve"
-        }
-      }
-    }
   }
 };
