@@ -8,13 +8,7 @@
     <div :key="index" v-for="(item, index) in imagesInfo.detailImage">
       <div class="info-key">{{ item.key }}</div>
       <div class="info-list">
-        <img
-          :key="imageIndex"
-          :src="image"
-          @load="imgLoad"
-          alt=""
-          v-for="(image, imageIndex) in item.list"
-        />
+        <img :key="imageIndex" :src="image" @load="imgLoad" alt="" v-for="(image, imageIndex) in item.list" />
       </div>
     </div>
   </div>
@@ -64,10 +58,10 @@ export default {
 
 .info-desc .start,
 .info-desc .end {
+  position: relative;
   width: 90px;
   height: 1px;
   background-color: #a3a3a5;
-  position: relative;
 }
 
 .info-desc .start {
@@ -80,12 +74,12 @@ export default {
 
 .info-desc .start::before,
 .info-desc .end::after {
-  content: "";
   position: absolute;
+  bottom: 0;
   width: 5px;
   height: 5px;
+  content: "";
   background-color: #333333;
-  bottom: 0;
 }
 
 .info-desc .end::after {
@@ -93,14 +87,14 @@ export default {
 }
 
 .info-desc .desc {
-  padding: 15px 0;
   font-size: 14px;
+  padding: 15px 0;
 }
 
 .info-key {
+  font-size: 15px;
   margin: 10px 0 10px 15px;
   color: #333333;
-  font-size: 15px;
 }
 
 .info-list img {

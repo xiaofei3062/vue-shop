@@ -6,32 +6,17 @@
     </nav-bar>
     <div :class="{ error: !formData.username }" class="login-item">
       <label for="username">用户名：</label>
-      <input
-        id="username"
-        placeholder="请输入用户名"
-        type="text"
-        v-model.trim="formData.username"
-      />
+      <input id="username" placeholder="请输入用户名" type="text" v-model.trim="formData.username" />
     </div>
     <div :class="{ error: !formData.password }" class="login-item">
       <label for="password">密码：</label>
-      <input
-        id="password"
-        placeholder="请输入密码"
-        type="password"
-        v-model.trim="formData.password"
-      />
+      <input id="password" placeholder="请输入密码" type="password" v-model.trim="formData.password" />
     </div>
     <div class="login-btn">
       <van-button @click="goLogin" class="login-btn-login" type="info">
         点击登录
       </van-button>
-      <van-button
-        @click="goRegister"
-        class="login-btn-register"
-        plain
-        type="info"
-      >
+      <van-button @click="goRegister" class="login-btn-register" plain type="info">
         立即注册
       </van-button>
     </div>
@@ -39,37 +24,34 @@
 </template>
 
 <script>
-  import NavBar from "@/components/common/navbar/NavBar";
+import NavBar from "@/components/common/navbar/NavBar";
 
-  export default {
-    name: "Login",
-    data() {
-      return {
-        formData: {
-          username: "",
-          password: ""
-        }
-      };
-    },
-    methods: {
-      // 登录
-      goLogin() {
-        if (!this.formData.username) {
-          this.$notify({
-            type: "danger",
-            message: "用户名不能为空"
-          });
-        } else if (!this.formData.password) {
-          this.$notify({
-            type: "danger",
-            message: "密码不能为空"
-          });
-        } else {
-          axios
-          .post(
-            "http://121.42.13.36/login.php",
-            qs.stringify(this.formData)
-          )
+export default {
+  name: "Login",
+  data() {
+    return {
+      formData: {
+        username: "",
+        password: ""
+      }
+    };
+  },
+  methods: {
+    // 登录
+    goLogin() {
+      if (!this.formData.username) {
+        this.$notify({
+          type: "danger",
+          message: "用户名不能为空"
+        });
+      } else if (!this.formData.password) {
+        this.$notify({
+          type: "danger",
+          message: "密码不能为空"
+        });
+      } else {
+        axios
+          .post("http://121.42.13.36/login.php", qs.stringify(this.formData))
           .then(res => {
             console.log(res);
             if (res.state === "Success") {
@@ -95,72 +77,72 @@
           .catch(err => {
             console.log(err);
           });
-        }
-      },
-      // 注册
-      goRegister() {
-        this.$router.push("/register");
       }
     },
-    components: { NavBar }
-  };
+    // 注册
+    goRegister() {
+      this.$router.push("/register");
+    }
+  },
+  components: { NavBar }
+};
 </script>
 
 <style scoped>
-  .login {
-    font-size: 14px;
-    width: 100%;
-    color: #333333;
-  }
+.login {
+  font-size: 14px;
+  width: 100%;
+  color: #333333;
+}
 
-  .login-nav {
-    color: white;
-    background-color: #ff8198;
-  }
+.login-nav {
+  color: white;
+  background-color: #ff8198;
+}
 
-  .login-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 340px;
-    margin: 30px auto;
-  }
+.login-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 340px;
+  margin: 30px auto;
+}
 
-  .login-item label {
-    font-size: 16px;
-    display: block;
-    width: 70px;
-  }
+.login-item label {
+  font-size: 16px;
+  display: block;
+  width: 70px;
+}
 
-  .login-item input {
-    font-size: 14px;
-    line-height: 36px;
-    display: block;
-    width: 270px;
-    height: 36px;
-    padding-left: 10px;
-    border: 1px solid #cccccc;
-    border-radius: 5px;
-    outline: none;
-    background: none;
-  }
+.login-item input {
+  font-size: 14px;
+  line-height: 36px;
+  display: block;
+  width: 270px;
+  height: 36px;
+  padding-left: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  outline: none;
+  background: none;
+}
 
-  .login-item input:focus {
-    border: 1px solid #4098ef;
-  }
+.login-item input:focus {
+  border: 1px solid #4098ef;
+}
 
-  .login-item.error input:focus {
-    border: 1px solid red;
-  }
+.login-item.error input:focus {
+  border: 1px solid red;
+}
 
-  .login-item input::placeholder {
-    color: #999999;
-  }
+.login-item input::placeholder {
+  color: #999999;
+}
 
-  .login-btn {
-    display: flex;
-    justify-content: space-between;
-    width: 340px;
-    margin: 0 auto;
-  }
+.login-btn {
+  display: flex;
+  justify-content: space-between;
+  width: 340px;
+  margin: 0 auto;
+}
 </style>

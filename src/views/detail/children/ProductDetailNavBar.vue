@@ -20,7 +20,7 @@
 </template>
 
 <script>
-  import NavBar from "@/components/common/navbar/NavBar";
+import NavBar from "@/components/common/navbar/NavBar";
 
 export default {
   name: "ProductDetailNavBar",
@@ -51,8 +51,8 @@ export default {
 }
 
 .title-item {
-  flex: 1;
   font-size: 14px;
+  flex: 1;
 }
 
 .active {

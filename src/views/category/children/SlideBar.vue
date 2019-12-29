@@ -54,23 +54,23 @@ export default {
 }
 
 .slide-bar-height {
-  width: 100px;
   position: fixed;
-  left: 0;
-  right: 0;
   top: 44px;
+  right: 0;
   bottom: 49px;
-  background-color: #f6f6f6;
+  left: 0;
   overflow: hidden;
+  width: 100px;
+  background-color: #f6f6f6;
 }
 
 .slide-bar-item {
+  font-size: 14px;
+  line-height: 45px;
   width: 100px;
   height: 45px;
-  font-size: 14px;
-  color: #666666;
   text-align: center;
-  line-height: 45px;
+  color: #666666;
 }
 
 .slide-bar-item.active {

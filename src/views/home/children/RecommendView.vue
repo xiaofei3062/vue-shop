@@ -1,10 +1,6 @@
 <template>
   <div class="recommend">
-    <div
-      :key="index"
-      class="recommend-item"
-      v-for="(item, index) in recommends"
-    >
+    <div :key="index" class="recommend-item" v-for="(item, index) in recommends">
       <a :href="item.link">
         <img :src="item.image" alt="" />
         <p>{{ item.title }}</p>
@@ -40,8 +36,8 @@ export default {
 
 .recommend-item a {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
 }
 

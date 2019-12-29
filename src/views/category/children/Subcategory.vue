@@ -1,10 +1,6 @@
 <template>
   <div class="category-detail">
-    <div
-      :key="index"
-      class="category-detail-item"
-      v-for="(item, index) in CategoryList"
-    >
+    <div :key="index" class="category-detail-item" v-for="(item, index) in CategoryList">
       <a :href="item.link"><img :src="item.image" alt="" /></a>
       <p>{{ item.title }}</p>
     </div>
@@ -30,17 +26,17 @@ export default {
 
 <style scoped>
 .category-detail {
-  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  width: 100%;
   padding: 10px;
 }
 
 .category-detail-item {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
   width: 80px;
   height: 100px;

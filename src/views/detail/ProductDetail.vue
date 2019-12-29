@@ -1,29 +1,14 @@
 <template>
   <div class="product-detail">
-    <product-detail-nav-bar
-      @titleItemClick="titleItemClick"
-      ref="detailNavBar"
-    />
-    <scroll
-      :probe-type="3"
-      @backTopScroll="detailScroll"
-      class="scroll-height"
-      ref="scroll"
-    >
+    <product-detail-nav-bar @titleItemClick="titleItemClick" ref="detailNavBar" />
+    <scroll :probe-type="3" @backTopScroll="detailScroll" class="scroll-height" ref="scroll">
       <detail-swiper :swiper-list="topImages" class="detail-set-scroll" />
       <detail-base-info :goods="goods" />
       <detail-shop-info :shop="shops" />
       <detail-images-info :images-info="detailsInfo" @imgLoad="imgLoad" />
       <detail-param-info :param-info="paramsInfo" class="detail-set-scroll" />
-      <detail-comment-info
-        :comment-info="commentInfo"
-        class="detail-set-scroll"
-      />
-      <goods-list
-        :goods="recommendList"
-        :is-recommend="true"
-        class="detail-set-scroll"
-      />
+      <detail-comment-info :comment-info="commentInfo" class="detail-set-scroll" />
+      <goods-list :goods="recommendList" :is-recommend="true" class="detail-set-scroll" />
     </scroll>
 
     <!-- 回到顶部,监听组件的原生事件必须要用native修饰符变成原生组件 -->
@@ -48,13 +33,7 @@ import GoodsList from "@/components/content/goods/GoodsList";
 import DetailBottomBar from "./children/DetailBottomBar";
 import BackTop from "@/components/content/backTop/BackTop";
 
-import {
-  getProductDetail,
-  getRecommend,
-  Goods,
-  GoodsParams,
-  Shop
-} from "@/network/productDetail";
+import { getProductDetail, getRecommend, Goods, GoodsParams, Shop } from "@/network/productDetail";
 import { backTopMixin, imgListenerMixin } from "@/common/mixin";
 
 export default {
@@ -120,11 +99,7 @@ export default {
         this.topImages = data.itemInfo.topImages;
 
         // 获取商品数据,调用封装的ES6的class
-        this.goods = new Goods(
-          data.itemInfo,
-          data.columns,
-          data.shopInfo.services
-        );
+        this.goods = new Goods(data.itemInfo, data.columns, data.shopInfo.services);
 
         // 获取店铺数据
         this.shops = new Shop(data.shopInfo);
@@ -133,10 +108,7 @@ export default {
         this.detailsInfo = data.detailInfo;
 
         // 获取尺寸数据
-        this.paramsInfo = new GoodsParams(
-          data.itemParams.info,
-          data.itemParams.rule
-        );
+        this.paramsInfo = new GoodsParams(data.itemParams.info, data.itemParams.rule);
 
         // 获取评论数据
         if (data.rate.cRate !== 0) {
@@ -159,9 +131,7 @@ export default {
     // navBar点击
     titleItemClick(index) {
       // 根据数组下标滚动到对应的元素内容位置
-      let setScroll = Array.from(
-        document.getElementsByClassName("detail-set-scroll")
-      );
+      let setScroll = Array.from(document.getElementsByClassName("detail-set-scroll"));
       let el = setScroll[index];
       this.$refs.scroll.scrollToElement(el, 300);
     },
@@ -169,9 +139,7 @@ export default {
     getClassList() {
       // Array.from() 将伪数组转换成纯数组
       this.detailClassList = [];
-      this.detailClassList = Array.from(
-        document.getElementsByClassName("detail-set-scroll")
-      );
+      this.detailClassList = Array.from(document.getElementsByClassName("detail-set-scroll"));
       let maxValue = 10000000;
       this.detailClassList.push({ offsetTop: maxValue });
     },

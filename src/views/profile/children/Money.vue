@@ -33,17 +33,17 @@ export default {
 
 <style scoped>
 .money {
-  width: 100%;
   display: flex;
+  width: 100%;
 }
 
 .money .money-item {
-  flex: 1;
-  height: 85px;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex: 1;
+  flex-direction: column;
   justify-content: center;
+  height: 85px;
 }
 
 .money .money-item:nth-of-type(1),
@@ -54,15 +54,15 @@ export default {
 .money .money-item p:first-child {
   font-size: 24px;
   font-weight: 700;
-  color: #ff5f3e;
   margin-bottom: 3px;
+  color: #ff5f3e;
 }
 
 .money .money-item p:first-child span {
   font-size: 14px;
-  color: #666666;
   font-weight: normal;
   margin-left: 3px;
+  color: #666666;
 }
 
 .money .money-item p:last-child {

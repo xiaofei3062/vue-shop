@@ -67,7 +67,6 @@ export default {
 
 .shop-top {
   line-height: 45px;
-  /* 让元素垂直中心对齐 */
   display: flex;
   align-items: center;
 }
@@ -75,8 +74,8 @@ export default {
 .shop-top img {
   width: 45px;
   height: 45px;
-  border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
 }
 
 .shop-top .title {
@@ -85,9 +84,9 @@ export default {
 }
 
 .shop-middle {
-  margin-top: 15px;
   display: flex;
   align-items: center;
+  margin-top: 15px;
 }
 
 .shop-middle-item {
@@ -97,8 +96,8 @@ export default {
 .shop-middle-left {
   display: flex;
   justify-content: space-evenly;
-  color: #333333;
   text-align: center;
+  color: #333333;
   border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -109,8 +108,8 @@ export default {
 
 .sells-text,
 .goods-text {
-  margin-top: 10px;
   font-size: 12px;
+  margin-top: 10px;
 }
 
 .shop-middle-right {
@@ -136,10 +135,10 @@ export default {
 }
 
 .shop-middle-right .better span {
-  background-color: #5ea732;
-  color: #ffffff;
-  text-align: center;
   padding: 3px;
+  text-align: center;
+  color: #ffffff;
+  background-color: #5ea732;
 }
 
 .shop-middle-right .better-more span {
@@ -147,18 +146,18 @@ export default {
 }
 
 .shop-bottom {
-  text-align: center;
   margin-top: 10px;
+  text-align: center;
 }
 
 .enter-shop {
-  display: inline-block;
   font-size: 14px;
-  background-color: #f2f5f8;
+  line-height: 30px;
+  display: inline-block;
   width: 150px;
   height: 30px;
   text-align: center;
-  line-height: 30px;
   border-radius: 10px;
+  background-color: #f2f5f8;
 }
 </style>

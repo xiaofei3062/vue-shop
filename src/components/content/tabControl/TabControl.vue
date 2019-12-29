@@ -39,11 +39,11 @@ export default {
 
 <style scoped>
 .tab-control {
-  display: flex;
-  text-align: center;
-  height: 40px;
   line-height: 40px;
+  display: flex;
   justify-content: space-between;
+  height: 40px;
+  text-align: center;
 }
 
 .tab-control-item {

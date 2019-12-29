@@ -34,21 +34,21 @@ export default {
 
 <style scoped>
 .bottom-bar {
-  height: 58px;
   position: fixed;
-  background-color: #ffffff;
-  left: 0;
+  z-index: 10;
   right: 0;
   bottom: 0;
+  left: 0;
   display: flex;
+  height: 58px;
   text-align: center;
-  z-index: 10;
+  background-color: #ffffff;
 }
 
 .bar-item {
-  height: 58px;
-  flex: 1;
   display: flex;
+  flex: 1;
+  height: 58px;
 }
 
 .bar-item > div {
@@ -76,20 +76,20 @@ export default {
 }
 
 .bar-right {
-  height: 58px;
   font-size: 15px;
-  color: #ffffff;
   line-height: 58px;
+  height: 58px;
+  color: #ffffff;
 }
 
 .bar-right .cart {
-  background-color: #ffe817;
-  color: #333333;
   font-size: 15px;
+  color: #333333;
+  background-color: #ffe817;
 }
 
 .bar-right .buy {
-  background-color: #ff6699;
   font-size: 16px;
+  background-color: #ff6699;
 }
 </style>

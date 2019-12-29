@@ -18,19 +18,14 @@
         <span>{{ commentInfo.style }}</span>
       </div>
       <div class="info-imgs">
-        <img
-          :key="index"
-          :src="item"
-          alt=""
-          v-for="(item, index) in commentInfo.images"
-        />
+        <img :key="index" :src="item" alt="" v-for="(item, index) in commentInfo.images" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import { formatDate } from "@/common/utils";
+import { formatDate } from "@/common/utils";
 
 export default {
   name: "DetailCommentInfo",
@@ -56,20 +51,20 @@ export default {
 }
 
 .info-header {
-  height: 50px;
   line-height: 50px;
+  height: 50px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .header-title {
-  float: left;
   font-size: 15px;
+  float: left;
 }
 
 .header-more {
+  font-size: 13px;
   float: right;
   margin-right: 10px;
-  font-size: 13px;
 }
 
 .info-user {
@@ -83,8 +78,8 @@ export default {
 }
 
 .info-user span {
-  position: relative;
   font-size: 15px;
+  position: relative;
   top: -15px;
   margin-left: 10px;
 }
@@ -95,14 +90,14 @@ export default {
 
 .info-detail p {
   font-size: 14px;
-  color: #777777;
   line-height: 1.5;
+  color: #777777;
 }
 
 .info-detail .info-other {
   font-size: 12px;
-  color: #999999;
   margin-top: 10px;
+  color: #999999;
 }
 
 .info-other .date {

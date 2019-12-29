@@ -28,15 +28,15 @@ export default {
 
 <style scoped>
 .my-toast {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  margin: auto;
-  z-index: 1000;
-  background-color: rgba(0, 0, 0, 0.75);
-  padding: 8px 15px;
-  color: white;
   font-size: 16px;
+  position: fixed;
+  z-index: 1000;
+  top: 50%;
+  left: 50%;
+  margin: auto;
+  padding: 8px 15px;
+  transform: translate(-50%, -50%);
+  color: white;
+  background-color: rgba(0, 0, 0, 0.75);
 }
 </style>

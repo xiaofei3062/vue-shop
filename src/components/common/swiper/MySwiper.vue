@@ -40,8 +40,8 @@ export default {
 .swiper-list /deep/ .van-swipe__indicator {
   width: 10px;
   height: 10px;
-  background-color: white;
   opacity: 0.8;
+  background-color: white;
 }
 
 .swiper-list /deep/ .van-swipe__indicator--active {

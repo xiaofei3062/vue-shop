@@ -21,16 +21,8 @@
     </scroll>
 
     <!-- 底部订单栏 -->
-    <van-submit-bar
-      :button-text="`提交订单(${checkedLength})`"
-      :price="totalPrice * 100"
-      @submit="onSubmit"
-    >
-      <van-checkbox
-        @click="checkedAllClick"
-        class="checked-all"
-        v-model="checkedAll"
-      >
+    <van-submit-bar :button-text="`提交订单(${checkedLength})`" :price="totalPrice * 100" @submit="onSubmit">
+      <van-checkbox @click="checkedAllClick" class="checked-all" v-model="checkedAll">
         全选
       </van-checkbox>
     </van-submit-bar>
@@ -38,18 +30,18 @@
 </template>
 
 <script>
-  import Scroll from "@/components/common/scroll/Scroll";
-  import { mapGetters, mapMutations } from "vuex";
+import Scroll from "@/components/common/scroll/Scroll";
+import { mapGetters, mapMutations } from "vuex";
 
-  export default {
-    name: "CartList",
-    components: { Scroll },
-    data() {
-      return {
-        checkedAll: false
-      };
-    },
-    computed: {
+export default {
+  name: "CartList",
+  components: { Scroll },
+  data() {
+    return {
+      checkedAll: false
+    };
+  },
+  computed: {
     ...mapGetters(["cartList", "cartListLength"]),
     // 购物车总价
     totalPrice() {
@@ -74,8 +66,7 @@
     // 反选
     itemChange() {
       let result = this.cartList.filter(item => item.checked === true);
-      this.checkedAll =
-        result.length > 0 && result.length === this.cartList.length;
+      this.checkedAll = result.length > 0 && result.length === this.cartList.length;
     },
     // 按钮提交
     onSubmit() {
@@ -134,8 +125,8 @@
 .scroll-height {
   position: absolute;
   top: 44px;
-  bottom: 99px;
   right: 0;
+  bottom: 99px;
   left: 0;
   overflow: hidden;
   width: 100%;
@@ -143,9 +134,9 @@
 }
 
 .shop-item {
-  width: 100%;
-  display: flex;
   font-size: 0;
+  display: flex;
+  width: 100%;
   padding: 5px;
   border-bottom: 1px solid #cccccc;
 }
@@ -155,10 +146,10 @@
 }
 
 .item-selector {
-  width: 12%;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  width: 12%;
 }
 
 .item-title,
@@ -173,33 +164,33 @@
 }
 
 .item-img img {
+  display: block;
   width: 80px;
   height: 100px;
-  display: block;
   border-radius: 5px;
 }
 
 .item-info {
   font-size: 17px;
-  color: #333333;
-  padding: 5px 10px;
   position: relative;
   overflow: hidden;
   width: 88%;
+  padding: 5px 10px;
+  color: #333333;
 }
 
 .item-info .item-desc {
   font-size: 14px;
-  color: #666666;
   margin-top: 15px;
+  color: #666666;
 }
 
 .info-bottom {
-  margin-top: 10px;
   position: absolute;
+  right: 10px;
   bottom: 10px;
   left: 10px;
-  right: 10px;
+  margin-top: 10px;
 }
 
 .info-bottom .item-price {

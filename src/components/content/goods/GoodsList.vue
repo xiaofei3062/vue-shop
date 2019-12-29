@@ -3,12 +3,7 @@
     <p v-show="isRecommend">推荐商品</p>
     <div class="goods-list">
       <!-- 循环部分 -->
-      <div
-        :key="index"
-        @click="goodItemClick(item)"
-        class="goods-list-item"
-        v-for="(item, index) in goods"
-      >
+      <div :key="index" @click="goodItemClick(item)" class="goods-list-item" v-for="(item, index) in goods">
         <img @load="imgLoad" alt="" v-lazy="showImage(index)" />
         <div class="goods-info">
           <p>{{ item.title }}</p>
@@ -52,11 +47,7 @@ export default {
     },
     // 动态显示图片
     showImage(index) {
-      return (
-        this.goods[index].img ||
-        this.goods[index].image ||
-        this.goods[index].show.img
-      );
+      return this.goods[index].img || this.goods[index].image || this.goods[index].show.img;
     }
   }
 };
@@ -69,23 +60,23 @@ export default {
 
 .goods-list-box p {
   font-size: 15px;
-  padding-left: 10px;
   margin-top: 10px;
+  padding-left: 10px;
 }
 
 .goods-list {
-  width: 100%;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
+  flex-wrap: wrap;
   justify-content: space-between;
+  width: 100%;
   padding: 10px;
 }
 
 .goods-list-item {
+  position: relative;
   width: 48%;
   padding-bottom: 40px;
-  position: relative;
 }
 
 .goods-list-item img {
@@ -96,18 +87,18 @@ export default {
 .goods-info {
   font-size: 14px;
   position: absolute;
+  right: 0;
   bottom: 5px;
   left: 0;
-  right: 0;
   overflow: hidden;
   text-align: center;
 }
 
 .goods-info p {
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
   margin-bottom: 3px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .goods-info .price {

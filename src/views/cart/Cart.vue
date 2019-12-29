@@ -14,17 +14,17 @@
 </template>
 
 <script>
-  import NavBar from "@/components/common/navbar/NavBar";
-  import CartList from "./children/CartList";
-  import { mapGetters } from "vuex";
+import NavBar from "@/components/common/navbar/NavBar";
+import CartList from "./children/CartList";
+import { mapGetters } from "vuex";
 
-  export default {
-    name: "Cart",
-    computed: {
-      // 对象写法可以自己命名
-      ...mapGetters({
-        cartLength: "cartListLength"
-      })
+export default {
+  name: "Cart",
+  computed: {
+    // 对象写法可以自己命名
+    ...mapGetters({
+      cartLength: "cartListLength"
+    })
 
     // 数组写法,默认名字
     // ...mapGetters(["cartListLength"])

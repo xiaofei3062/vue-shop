@@ -5,11 +5,7 @@
     <div class="info-price">
       <span class="n-price">{{ goods.newPrice }}</span>
       <span class="o-price">{{ goods.oldPrice }}</span>
-      <span
-        :style="{ backgroundColor: goods.discountBgColor }"
-        class="discount"
-        v-if="goods.discount"
-      >
+      <span :style="{ backgroundColor: goods.discountBgColor }" class="discount" v-if="goods.discount">
         {{ goods.discount }}
       </span>
     </div>
@@ -56,8 +52,8 @@ export default {
 }
 
 .info-title {
-  color: #222222;
   text-align: justify;
+  color: #222222;
 }
 
 .info-price {
@@ -89,30 +85,30 @@ export default {
 }
 
 .info-other {
-  margin-top: 15px;
+  font-size: 13px;
   line-height: 30px;
   display: flex;
-  font-size: 13px;
-  border-bottom: 1px solid rgba(100, 100, 100, 0.1);
   justify-content: space-between;
+  margin-top: 15px;
+  border-bottom: 1px solid rgba(100, 100, 100, 0.1);
 }
 
 .info-service {
+  line-height: 60px;
   display: flex;
   justify-content: space-between;
-  line-height: 60px;
 }
 
 .info-service-item img {
-  width: 14px;
-  height: 14px;
   position: relative;
   top: 2px;
+  width: 14px;
+  height: 14px;
 }
 
 .info-service-item span {
   font-size: 13px;
-  color: #333333;
   margin-left: 5px;
+  color: #333333;
 }
 </style>
