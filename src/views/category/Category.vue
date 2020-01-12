@@ -3,11 +3,11 @@
     <nav-bar class="category-nav-bar">
       <div slot="center">商品分类</div>
     </nav-bar>
-    <slide-bar :slide-bar-list="categoryList" @slideBarItemClick="slideBarItemClick" />
+    <slide-bar :slide-bar-list="list[currentIndex].categoryList" @slideBarItemClick="slideBarItemClick" />
     <scroll class="scroll-height">
-      <subcategory :category-list="subcategoryList" />
+      <subcategory :category-list="list[currentIndex].subcategoryList" />
       <tab-control :titles="titleList" @tabClick="tabClick" />
-      <goods-list :goods="categoryDetailList" />
+      <goods-list :goods="list[currentIndex].categoryDetailList" />
     </scroll>
   </div>
 </template>
@@ -25,18 +25,17 @@ export default {
   name: "Category",
   data() {
     return {
-      categoryList: [],
-      subcategoryList: [],
-      categoryDetailList: [],
+      list: [
+        {
+          categoryList: [],
+          subcategoryList: [],
+          categoryDetailList: []
+        }
+      ],
       titleList: ["流行", "新款", "精选"],
       curMiniWallkey: "10062603",
-      keyList: [],
-      keyList2: [],
-      dataList: [],
-      curIndex: 0,
-      curType: "pop",
-      dataList2: [],
-      list: []
+      currentType: "pop",
+      currentIndex: 0
     };
   },
   components: { GoodsList, TabControl, Scroll, Subcategory, NavBar, SlideBar },
@@ -45,60 +44,62 @@ export default {
       // console.log(maitKey, miniWallkey);
       // 将miniWallkey动态添加到数组中,如果数据中包含当前的miniWallkey则证明数据请求过了
       this.curMiniWallkey = miniWallkey;
-      this.curIndex = index;
-      if (this.keyList.includes(miniWallkey) && this.keyList2.includes(maitKey)) {
-        this.subcategoryList = this.dataList[index];
-        this.categoryDetailList = this.dataList2[index][0];
-      } else {
-        this.keyList[index] = miniWallkey;
-        this.keyList2[index] = maitKey;
-        this.getCategoryDetail(miniWallkey, "pop", index);
-        this.getCategoryDetail(miniWallkey, "new", index);
-        this.getCategoryDetail(miniWallkey, "sell", index);
-        this.getSubcategory(maitKey, index);
-      }
+      this.currentIndex = index;
+      if (this.list.includes(maitKey)) return;
+      this.getSubcategory(this.list[index].categoryList[index].maitKey, index);
+      this.getCategoryDetail(this.list[index].categoryList[index].miniWallkey, "pop", index);
+      this.getCategoryDetail(this.list[index].categoryList[index].miniWallkey, "new", index);
+      this.getCategoryDetail(this.list[index].categoryList[index].miniWallkey, "sell", index);
     },
     getCategory() {
       getCategory().then(res => {
         // console.log(res.data.category.list);
-        this.categoryList = res.data.category.list;
+        let index = this.currentIndex;
+        this.list[index].categoryList = res.data.category.list;
+        const obj = {
+          categoryList: this.list[index].categoryList,
+          subcategoryList: this.list[index].subcategoryList,
+          categoryDetailList: this.list[index].categoryDetailList
+        };
+        this.list.push(obj);
+        Array.from(new Set(this.list));
         // 初始化请求第一条数据,并且给数组赋值第一个默认值
-        if (this.categoryList.length > 0) {
-          this.getSubcategory(this.categoryList[0].maitKey, 0);
-          this.getCategoryDetail(this.categoryList[0].miniWallkey, "pop", 0);
-          this.getCategoryDetail(this.categoryList[0].miniWallkey, "new", 0);
-          this.getCategoryDetail(this.categoryList[0].miniWallkey, "sell", 0);
-          this.keyList.push(this.categoryList[0].miniWallkey);
-          this.keyList2.push(this.categoryList[0].maitKey);
+        if (this.list[index].categoryList.length > 0) {
+          this.getSubcategory(this.list[index].categoryList[0].maitKey, 0);
+          this.getCategoryDetail(this.list[index].categoryList[0].miniWallkey, "pop", 0);
+          this.getCategoryDetail(this.list[index].categoryList[0].miniWallkey, "new", 0);
+          this.getCategoryDetail(this.list[index].categoryList[0].miniWallkey, "sell", 0);
         }
       });
     },
     getSubcategory(key, index) {
       getSubcategory(key).then(res => {
         // console.log(res.data.list);
-        this.dataList[index] = res.data.list;
-        if (this.dataList.length > 1) {
-          this.subcategoryList = this.dataList[index];
-        } else {
-          this.subcategoryList = this.dataList[0];
-        }
+        this.list[index].subcategoryList = res.data.list;
+        const obj = {
+          categoryList: this.list[index].categoryList,
+          subcategoryList: this.list[index].subcategoryList,
+          categoryDetailList: this.list[index].categoryDetailList
+        };
+        this.list.push(obj);
+        Array.from(new Set(this.list));
       });
     },
     getCategoryDetail(key, type, index) {
-      this.list = [];
       getCategoryDetail(key, type).then(res => {
         // console.log(res);
-        this.list.push(res);
-        this.dataList2[index] = this.list;
-        if (this.dataList2.length > 1) {
-          this.categoryDetailList = this.dataList2[index][index];
-        } else {
-          this.categoryDetailList = this.dataList2[0][0];
-        }
+        this.list[index].categoryDetailList = res;
+        const obj = {
+          categoryList: this.list[index].categoryList,
+          subcategoryList: this.list[index].subcategoryList,
+          categoryDetailList: this.list[index].categoryDetailList
+        };
+        this.list.push(obj);
+        Array.from(new Set(this.list));
       });
     },
     tabClick(index) {
-      this.categoryDetailList = this.dataList2[this.curIndex][index];
+      this.getCategoryDetail(this.list[index].categoryList[index].miniWallkey, this.currentType, 0);
     }
   },
   created() {
