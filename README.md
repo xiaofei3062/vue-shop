@@ -1,5 +1,7 @@
 # Vue商城项目
 
+## 需要项目接口请联系微信codeywhy001
+
 ## 项目安装
 ```
 npm install
