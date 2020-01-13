@@ -10,7 +10,9 @@ const state = {
   // 默认tabBar显示
   tabBarShow: true,
   // 购物车数据
-  cartList: []
+  cartList: [],
+  // 是否开启请求加载
+  isLoading: true
 };
 
 export default new Vuex.Store({

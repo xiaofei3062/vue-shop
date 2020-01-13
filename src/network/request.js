@@ -1,6 +1,7 @@
 import axios from "axios";
 import qs from "qs";
 import { Toast } from "vant";
+import Loading from "../store/index";
 
 const url = "http://106.54.54.237:8000/api/hy";
 const url2 = "http://123.207.32.32:8000/api/hy";
@@ -14,10 +15,13 @@ const _axios = axios.create(config);
 // 请求拦截
 _axios.interceptors.request.use(
   req => {
-    Toast.loading({
-      forbidClick: true,
-      message: "加载中..."
-    });
+    console.log(Loading.getters.isLoading);
+    if (Loading.getters.isLoading) {
+      Toast.loading({
+        forbidClick: true,
+        message: "加载中..."
+      });
+    }
     return req;
   },
   err => {

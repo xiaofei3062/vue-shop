@@ -1,10 +1,14 @@
-import { ADD_COUNTER, ADD_TO_CART, CLEAR_CART_LIST, SET_CART_LIST, SET_TABBAR_SHOW } from "./types";
+import { ADD_COUNTER, ADD_TO_CART, CLEAR_CART_LIST, SET_CART_LIST, SET_LOADING, SET_TABBAR_SHOW } from "./types";
 import { Toast } from "vant";
 
 export default {
   // 设置tabBar显示和隐藏
   [SET_TABBAR_SHOW](state, bol) {
     state.tabBarShow = bol;
+  },
+  // 设置请求加载
+  [SET_LOADING](state, bol) {
+    state.isLoading = bol;
   },
   // id相同的时候购物车叠加数量
   [ADD_COUNTER](state, result) {
