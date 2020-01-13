@@ -38,7 +38,7 @@
     },
     components: { GoodsList, TabControl, Scroll, Subcategory, NavBar, SlideBar },
     methods: {
-      slideBarItemClick({ maitKey, miniWallkey, index }) {
+      slideBarItemClick({ maitKey, index }) {
         this.currentIndex = index;
         // 每次切换分类初始化tabControl的下标
         this.$refs.tabControl.curIndex = 0;
@@ -76,6 +76,7 @@
         });
       },
       tabClick(index) {
+        this.$store.commit("setLoading", true);
         const typeList = ["pop", "new", "sell"];
         // 切换类型数据
         this.getCategoryDetail(this.categoryList[this.currentIndex].miniWallkey, typeList[index]);

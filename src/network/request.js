@@ -3,11 +3,11 @@ import qs from "qs";
 import { Toast } from "vant";
 import Loading from "../store/index";
 
-const url = "http://106.54.54.237:8000/api/hy";
-const url2 = "http://123.207.32.32:8000/api/hy";
+// 此接口为测试接口,真实接口请联系微信codeywhy001
+const url = "http://127.0.0.1:8000/api";
 
 let config = {
-  baseURL: url || url2
+  baseURL: url
 };
 
 const _axios = axios.create(config);
@@ -15,7 +15,7 @@ const _axios = axios.create(config);
 // 请求拦截
 _axios.interceptors.request.use(
   req => {
-    console.log(Loading.getters.isLoading);
+    // 当getters里面的isLoading为true再显示请求加载
     if (Loading.getters.isLoading) {
       Toast.loading({
         forbidClick: true,
