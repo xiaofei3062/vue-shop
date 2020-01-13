@@ -29,8 +29,7 @@
     "vue-template-compiler": "^2.6.11"
   },
   "browserslist": [
-    "> 1%",
-    "last 2 versions",
+    "last 5 versions",
     "ios >= 7.0",
     "android >= 4.0"
   ]

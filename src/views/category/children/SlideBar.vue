@@ -68,6 +68,7 @@
     line-height: 45px;
     width: 100px;
     height: 45px;
+    user-select: none;
     text-align: center;
     color: #666666;
     border: 0;
