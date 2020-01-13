@@ -84,6 +84,10 @@ export default {
   },
   created() {
     this.getCategory();
+  },
+  deactivated() {
+    // 每次离开恢复loading加载
+    this.$store.commit("setLoading", true);
   }
 };
 </script>
