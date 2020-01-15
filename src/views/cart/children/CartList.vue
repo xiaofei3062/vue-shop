@@ -113,7 +113,7 @@ export default {
     }
   },
   created() {
-    // 获取本地存储购物车数据
+    // 每次刷新页面获取本地存储购物车数据
     let list = JSON.parse(localStorage.getItem("cartList")) || [];
     if (list) {
       this.setCartList(list);

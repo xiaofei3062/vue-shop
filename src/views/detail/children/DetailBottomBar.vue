@@ -2,7 +2,7 @@
   <div class="bottom-bar">
     <van-goods-action>
       <van-goods-action-icon icon="chat-o" text="客服" />
-      <van-goods-action-icon :info="info" @click="$router.push('/cart')" icon="cart-o" text="购物车" />
+      <van-goods-action-icon :info="cartLength" @click="$router.push('/cart')" icon="cart-o" text="购物车" />
       <van-goods-action-icon
         :color="isShouCang ? '#ff5000' : '#000000'"
         :icon="isShouCang ? 'star' : 'star-o'"
@@ -16,6 +16,8 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "DetailBottomBar",
   data() {
@@ -24,15 +26,16 @@ export default {
     };
   },
   computed: {
-    // 计算购物车总个数
-    info() {
-      const cartList = localStorage.getItem("cartList");
-      let arr = [];
-      if (cartList) {
-        arr = JSON.parse(cartList);
-        return arr.length;
-      }
-      return 0;
+    // 对象写法可以自己命名
+    ...mapGetters({
+      cartLength: "cartListLength"
+    })
+  },
+  created() {
+    // 每次刷新页面获取本地存储购物车数据
+    let list = JSON.parse(localStorage.getItem("cartList")) || [];
+    if (list) {
+      this.$store.commit("setCartList", list);
     }
   },
   methods: {
