@@ -62,7 +62,6 @@ export default {
   right: 0;
   bottom: 0;
   left: 0;
-  box-sizing: border-box;
   width: 100%;
   height: 50px;
 }
