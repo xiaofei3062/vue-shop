@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="shop-container">
     <keep-alive exclude="ProductDetail">
       <router-view />
     </keep-alive>

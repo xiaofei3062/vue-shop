@@ -93,7 +93,7 @@ export default {
     getProductDetail() {
       getProductDetail(this.detailId).then(res => {
         const data = res.result;
-        console.log(data);
+        // console.log(data);
 
         // 获取轮播图数据
         this.topImages = data.itemInfo.topImages;

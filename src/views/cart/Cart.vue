@@ -25,9 +25,6 @@ export default {
     ...mapGetters({
       cartLength: "cartListLength"
     })
-
-    // 数组写法,默认名字
-    // ...mapGetters(["cartListLength"])
   },
   components: { CartList, NavBar }
 };
@@ -37,14 +34,5 @@ export default {
 .nav-bar {
   color: white;
   background-color: #ff8198;
-}
-
-/deep/ .van-submit-bar {
-  bottom: 49px;
-  border-top: 1px solid #cccccc;
-}
-
-/deep/ .van-submit-bar__text {
-  text-align: center;
 }
 </style>

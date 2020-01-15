@@ -1,7 +1,7 @@
 export function getCategory() {
   return axios({
     url: "/category"
-  });
+  }).catch(err => err);
 }
 
 export function getSubcategory(maitKey) {
@@ -10,7 +10,7 @@ export function getSubcategory(maitKey) {
     params: {
       maitKey
     }
-  });
+  }).catch(err => err);
 }
 
 export function getCategoryDetail(miniWallkey, type) {
@@ -20,5 +20,5 @@ export function getCategoryDetail(miniWallkey, type) {
       miniWallkey,
       type
     }
-  });
+  }).catch(err => err);
 }

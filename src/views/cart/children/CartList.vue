@@ -21,11 +21,21 @@
     </scroll>
 
     <!-- 底部订单栏 -->
-    <van-submit-bar :button-text="`提交订单(${checkedLength})`" :price="totalPrice * 100" @submit="onSubmit">
-      <van-checkbox @click="checkedAllClick" class="checked-all" v-model="checkedAll">
-        全选
-      </van-checkbox>
-    </van-submit-bar>
+    <div class="cart-bottom-bar">
+      <div class="cart-bottom-check">
+        <van-checkbox @click="checkedAllClick" class="checked-all" v-model="checkedAll">
+          全选
+        </van-checkbox>
+      </div>
+      <div class="cart-bottom-price">
+        合计：
+        <span>¥ {{ Number(totalPrice).toFixed(2) }}</span>
+        元
+      </div>
+      <div class="cart-bottom-btn">
+        <button @click="onSubmit">提交订单({{ checkedLength }})</button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -168,6 +178,7 @@ export default {
   width: 80px;
   height: 100px;
   border-radius: 5px;
+  object-fit: cover;
 }
 
 .item-info {
@@ -197,7 +208,43 @@ export default {
   color: #ff4500;
 }
 
-/deep/ .checked-all {
-  margin-left: 10px;
+.cart-bottom-bar {
+  font-size: 15px;
+  position: fixed;
+  right: 0;
+  bottom: 50px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  padding: 0 10px;
+  border-top: 1px solid #cccccc;
+}
+
+.cart-bottom-price {
+  margin-left: 50px;
+}
+
+.cart-bottom-price span {
+  color: red;
+}
+
+.cart-bottom-btn button {
+  line-height: 50px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: block;
+  height: 50px;
+  padding: 0 15px;
+  color: white;
+  border: 0;
+  outline: none;
+  background: linear-gradient(to right, #ff6034, #ee0a24);
+}
+
+.cart-bottom-btn button:active {
+  opacity: 0.8;
 }
 </style>

@@ -53,7 +53,7 @@ export default {
         axios
           .post("http://121.42.13.36/login.php", qs.stringify(this.formData))
           .then(res => {
-            console.log(res);
+            // console.log(res);
             if (res.state === "Success") {
               let obj = {
                 username: res.username,

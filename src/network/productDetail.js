@@ -2,13 +2,13 @@ export function getProductDetail(iid) {
   return axios({
     url: "/detail",
     params: { iid }
-  });
+  }).catch(err => err);
 }
 
 export function getRecommend() {
   return axios({
     url: "/recommend"
-  });
+  }).catch(err => err);
 }
 
 // ES6的类,详情数据

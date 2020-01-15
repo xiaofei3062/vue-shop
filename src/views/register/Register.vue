@@ -89,7 +89,7 @@ export default {
             }
           })
           .then(res => {
-            console.log(res);
+            // console.log(res);
             if (res.state === "Success") {
               this.$notify({
                 type: "success",

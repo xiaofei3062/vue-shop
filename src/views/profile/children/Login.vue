@@ -54,7 +54,7 @@ export default {
     },
     // 更换头像
     afterRead(file) {
-      console.log(file);
+      // console.log(file);
       this.defaultPic = file.content;
       localStorage.setItem("user_pic", JSON.stringify(this.defaultPic));
     }
