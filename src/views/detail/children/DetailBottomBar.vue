@@ -1,32 +1,52 @@
 <template>
   <div class="bottom-bar">
-    <div class="bar-item bar-left">
-      <div>
-        <i class="icon service" />
-        <span class="text">客服</span>
-      </div>
-      <div>
-        <i class="icon shop" />
-        <span class="text">店铺</span>
-      </div>
-      <div>
-        <i class="icon select" />
-        <span class="text">收藏</span>
-      </div>
-    </div>
-    <div class="bar-item bar-right">
-      <div @click="addToCart" class="cart">加入购物车</div>
-      <div class="buy">购买</div>
-    </div>
+    <van-goods-action>
+      <van-goods-action-icon icon="chat-o" text="客服" />
+      <van-goods-action-icon :info="info" @click="$router.push('/cart')" icon="cart-o" text="购物车" />
+      <van-goods-action-icon
+        :color="isShouCang ? '#ff5000' : '#000000'"
+        :icon="isShouCang ? 'star' : 'star-o'"
+        :text="isShouCang ? '已收藏' : '收藏'"
+        @click="starClick"
+      />
+      <van-goods-action-button @click="addToCart" text="加入购物车" type="warning" />
+      <van-goods-action-button @click="$router.push('/cart')" text="立即购买" type="danger" />
+    </van-goods-action>
   </div>
 </template>
 
 <script>
 export default {
   name: "DetailBottomBar",
+  data() {
+    return {
+      isShouCang: false
+    };
+  },
+  computed: {
+    // 计算购物车总个数
+    info() {
+      const cartList = localStorage.getItem("cartList");
+      let arr = [];
+      if (cartList) {
+        arr = JSON.parse(cartList);
+        return arr.length;
+      }
+      return 0;
+    }
+  },
   methods: {
     addToCart() {
       this.$emit("addToCart");
+    },
+    starClick() {
+      if (!this.isShouCang) {
+        this.$toast("收藏成功");
+        this.isShouCang = true;
+      } else {
+        this.$toast("已取消收藏");
+        this.isShouCang = false;
+      }
     }
   }
 };
@@ -39,57 +59,18 @@ export default {
   right: 0;
   bottom: 0;
   left: 0;
-  display: flex;
-  height: 58px;
-  text-align: center;
-  background-color: #ffffff;
+  box-sizing: border-box;
+  width: 100%;
+  height: 50px;
 }
 
-.bar-item {
-  display: flex;
-  flex: 1;
-  height: 58px;
+/deep/ .van-goods-action {
+  line-height: 50px;
+  height: 50px;
+  border-top: 1px solid #cccccc;
 }
 
-.bar-item > div {
-  flex: 1;
-}
-
-.bar-left .text {
-  font-size: 13px;
-}
-
-.bar-left .icon {
-  display: block;
-  width: 22px;
-  height: 22px;
-  margin: 11px auto 0;
-  background: url("~assets/img/detail/detail_bottom.png") 0 0/100%;
-}
-
-.bar-left .service {
-  background-position: 0 -54px;
-}
-
-.bar-left .shop {
-  background-position: 0 -98px;
-}
-
-.bar-right {
-  font-size: 15px;
-  line-height: 58px;
-  height: 58px;
-  color: #ffffff;
-}
-
-.bar-right .cart {
-  font-size: 15px;
-  color: #333333;
-  background-color: #ffe817;
-}
-
-.bar-right .buy {
-  font-size: 16px;
-  background-color: #ff6699;
+/deep/ .van-goods-action-icon {
+  height: auto;
 }
 </style>
