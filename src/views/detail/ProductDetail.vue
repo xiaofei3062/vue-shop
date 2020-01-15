@@ -93,7 +93,7 @@ export default {
     getProductDetail() {
       getProductDetail(this.detailId).then(res => {
         const data = res.result;
-        // console.log(data);
+        console.log(data);
 
         // 获取轮播图数据
         this.topImages = data.itemInfo.topImages;
@@ -108,11 +108,11 @@ export default {
         this.detailsInfo = data.detailInfo;
 
         // 获取尺寸数据
-        this.paramsInfo = new GoodsParams(data.itemParams.info, data.itemParams.rule);
+        this.paramsInfo = new GoodsParams(data.itemParams.info, data.itemParams.rule || {});
 
         // 获取评论数据
         if (data.rate.cRate !== 0) {
-          this.commentInfo = data.rate.list[0];
+          this.commentInfo = data.rate.list[0] || {};
         }
       });
     },
