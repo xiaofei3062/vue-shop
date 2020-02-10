@@ -4,11 +4,10 @@ import { Toast } from "vant";
 import Loading from "../store/index";
 
 // 此接口为测试接口,真实接口请联系微信codeywhy001
-const url = "http://106.54.54.237:8000/api/hy";
-const url2 = "http://123.207.32.32:8000/api/hy";
+const url = "http://127.0.0.1/api";
 
 let config = {
-  baseURL: url || url2
+  baseURL: url
 };
 
 const _axios = axios.create(config);
