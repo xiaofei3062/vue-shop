@@ -3,11 +3,12 @@ import qs from "qs";
 import { Toast } from "vant";
 import Loading from "../store/index";
 
-// 此接口为测试接口,真实接口请联系微信codeywhy001
-const url = "http://127.0.0.1/api";
+// 公用接口
+const url = "http://106.54.54.237:8000/api/hy";
+const url2 = "http://123.207.32.32:8000/api/hy";
 
 let config = {
-  baseURL: url
+  baseURL: url2
 };
 
 const _axios = axios.create(config);
@@ -32,8 +33,10 @@ _axios.interceptors.request.use(
 // 响应拦截
 _axios.interceptors.response.use(
   res => {
-    Toast.clear();
-    return res.data;
+    if (res.status === 200 || res.status === 201) {
+      Toast.clear();
+      return res.data;
+    }
   },
   err => {
     Toast.clear();

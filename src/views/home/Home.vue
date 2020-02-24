@@ -29,7 +29,12 @@
       <!-- 本周流行 -->
       <feature-view />
       <!-- tabBarControl -->
-      <tab-control :titles="tabControlTitles" @tabClick="tabClick" class="home-tab-control" ref="tabControl2" />
+      <tab-control
+        :titles="tabControlTitles"
+        @tabClick="tabClick"
+        class="home-tab-control"
+        ref="tabControl2"
+      />
       <!-- 商品展示 -->
       <goods-list :goods="goods[curType].list" />
     </scroll>
@@ -162,6 +167,7 @@ export default {
 }
 
 .home .home-nav {
+  font-weight: 600;
   color: white;
   background-color: #ff8198;
 }

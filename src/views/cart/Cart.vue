@@ -32,6 +32,7 @@ export default {
 
 <style scoped>
 .nav-bar {
+  font-weight: 600;
   color: white;
   background-color: #ff8198;
 }

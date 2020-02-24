@@ -4,7 +4,7 @@
       <div slot="center">小码哥商城</div>
     </nav-bar>
     <scroll class="scroll-height">
-      <login :cur-login="isLogin" :phone="phone" :username="username" @goLogin="goLogin" ref="login" />
+      <login />
       <money />
       <div class="line"></div>
       <profile-list />
@@ -21,32 +21,7 @@ import Scroll from "@/components/common/scroll/Scroll";
 
 export default {
   name: "Profile",
-  data() {
-    return {
-      isLogin: false,
-      username: "",
-      phone: ""
-    };
-  },
-  components: { Scroll, ProfileList, Money, Login, NavBar },
-  methods: {
-    goLogin() {
-      this.$router.push("/login");
-    }
-  },
-  activated() {
-    let shop_login = localStorage.getItem("shop_login");
-    let user_pic = localStorage.getItem("user_pic");
-    if (shop_login) {
-      let login = JSON.parse(shop_login);
-      this.username = login.username;
-      this.phone = login.phone;
-      this.isLogin = true;
-    }
-    if (user_pic) {
-      this.$refs.login.defaultPic = JSON.parse(user_pic);
-    }
-  }
+  components: { Scroll, ProfileList, Money, Login, NavBar }
 };
 </script>
 

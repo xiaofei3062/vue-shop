@@ -5,7 +5,11 @@
     <div class="info-price">
       <span class="n-price">{{ goods.newPrice }}</span>
       <span class="o-price">{{ goods.oldPrice }}</span>
-      <span :style="{ backgroundColor: goods.discountBgColor }" class="discount" v-if="goods.discount">
+      <span
+        :style="{ backgroundColor: goods.discountBgColor }"
+        class="discount"
+        v-if="goods.discount"
+      >
         {{ goods.discount }}
       </span>
     </div>
@@ -78,8 +82,6 @@ export default {
   margin-left: 5px;
   padding: 3px 6px;
   color: #ffffff;
-
-  /*让元素上浮一些: 使用相对定位即可*/
   border-radius: 8px;
   background-color: #ff5777;
 }

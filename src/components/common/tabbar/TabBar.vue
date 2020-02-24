@@ -1,6 +1,13 @@
 <template>
   <div class="tab-bar">
-    <van-tabbar :border="false" :z-index="100" active-color="#ff8198" replace route v-model="active">
+    <van-tabbar
+      :border="false"
+      :z-index="100"
+      active-color="#ff8198"
+      replace
+      route
+      v-model="active"
+    >
       <van-tabbar-item icon="wap-home" to="/">首页</van-tabbar-item>
       <van-tabbar-item icon="shop" to="/category">分类</van-tabbar-item>
       <van-tabbar-item icon="shopping-cart" to="/cart">购物车</van-tabbar-item>

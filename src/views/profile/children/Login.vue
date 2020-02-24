@@ -1,17 +1,13 @@
 <template>
   <div class="login">
-    <van-uploader :after-read="afterRead">
-      <div class="user-pic">
-        <van-image :src="defaultPic" class="user-pic-img" fit="cover" round />
-      </div>
-    </van-uploader>
-    <div @click="curLogin ? '' : goLogin()" class="user-info">
-      <p v-if="curLogin">{{ username }}</p>
-      <p v-else>登录/注册</p>
+    <div class="user-pic">
+      <van-image :src="defaultPic" class="user-pic-img" fit="cover" round />
+    </div>
+    <div class="user-info">
+      <p>登录/注册</p>
       <div class="phone-num">
         <img alt="" class="icon-phone" src="@/assets/img/profile/phone.png" />
-        <p v-if="curLogin">{{ phone }}</p>
-        <p v-else>暂未绑定手机号</p>
+        <p>暂未绑定手机号</p>
       </div>
     </div>
     <div class="profile-arrow-right">
@@ -27,37 +23,6 @@ export default {
     return {
       defaultPic: require("@/assets/img/profile/user.png")
     };
-  },
-  props: {
-    curLogin: {
-      type: Boolean,
-      default() {
-        return false;
-      }
-    },
-    username: {
-      type: String,
-      default() {
-        return "";
-      }
-    },
-    phone: {
-      type: String,
-      default() {
-        return "";
-      }
-    }
-  },
-  methods: {
-    goLogin() {
-      this.$emit("goLogin");
-    },
-    // 更换头像
-    afterRead(file) {
-      // console.log(file);
-      this.defaultPic = file.content;
-      localStorage.setItem("user_pic", JSON.stringify(this.defaultPic));
-    }
   }
 };
 </script>

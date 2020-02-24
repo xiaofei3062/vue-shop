@@ -8,7 +8,13 @@
     <div :key="index" v-for="(item, index) in imagesInfo.detailImage">
       <div class="info-key">{{ item.key }}</div>
       <div class="info-list">
-        <img :key="imageIndex" :src="image" @load="imgLoad" alt="" v-for="(image, imageIndex) in item.list" />
+        <img
+          :key="imageIndex"
+          :src="image"
+          @load="imgLoad"
+          alt=""
+          v-for="(image, imageIndex) in item.list"
+        />
       </div>
     </div>
   </div>

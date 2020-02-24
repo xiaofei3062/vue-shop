@@ -3,7 +3,12 @@
     <p v-show="isRecommend">推荐商品</p>
     <div class="goods-list">
       <!-- 循环部分 -->
-      <div :key="index" @click="goodItemClick(item)" class="goods-list-item" v-for="(item, index) in goods">
+      <div
+        :key="index"
+        @click="goodItemClick(item)"
+        class="goods-list-item"
+        v-for="(item, index) in goods"
+      >
         <img @load="imgLoad" alt="" v-lazy="showImage(index)" />
         <div class="goods-info">
           <p>{{ item.title }}</p>

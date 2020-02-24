@@ -2,7 +2,12 @@
   <div class="bottom-bar">
     <van-goods-action>
       <van-goods-action-icon icon="chat-o" text="客服" />
-      <van-goods-action-icon :info="cartLength" @click="$router.push('/cart')" icon="cart-o" text="购物车" />
+      <van-goods-action-icon
+        :info="cartLength"
+        @click="$router.push('/cart')"
+        icon="cart-o"
+        text="购物车"
+      />
       <van-goods-action-icon
         :color="isShouCang ? '#ff5000' : '#000000'"
         :icon="isShouCang ? 'star' : 'star-o'"

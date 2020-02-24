@@ -131,9 +131,10 @@ export default {
     // navBar点击
     titleItemClick(index) {
       // 根据数组下标滚动到对应的元素内容位置
-      let setScroll = Array.from(document.getElementsByClassName("detail-set-scroll"));
-      let el = setScroll[index];
-      this.$refs.scroll.scrollToElement(el, 300);
+      this.$nextTick(() => {
+        let el = document.getElementsByClassName("detail-set-scroll");
+        this.$refs.scroll.scrollToElement(el[index], 300);
+      });
     },
     // 获取classList
     getClassList() {
@@ -142,6 +143,7 @@ export default {
       this.detailClassList = Array.from(document.getElementsByClassName("detail-set-scroll"));
       let maxValue = 10000000;
       this.detailClassList.push({ offsetTop: maxValue });
+      console.log(this.detailClassList);
     },
     // 监听详情页滚动事件,并动态设置navBar的index
     detailScroll(position) {
