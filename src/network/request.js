@@ -3,12 +3,11 @@ import qs from "qs";
 import { Toast } from "vant";
 import Loading from "../store/index";
 
-// 公用接口
-const url = "http://106.54.54.237:8000/api/hy";
-const url2 = "http://123.207.32.32:8000/api/hy";
+// 此接口为本地接口,真实接口请联系微信coderwhy001
+const url = "http://127.0.0.1:5000";
 
 let config = {
-  baseURL: url2
+  baseURL: url
 };
 
 const _axios = axios.create(config);
