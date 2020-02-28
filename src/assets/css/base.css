@@ -8,11 +8,13 @@
 
 body,
 html {
-  font-family: Arial, "Microsoft YaHei", sans-serif;
+  font-family: -apple-system, "MIUI", BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", STHeiti,
+    "Microsoft Yahei", Tahoma, Simsun, sans-serif;
   width: 100%;
   height: 100%;
   color: #666666;
   background: #ffffff;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 a {
@@ -49,6 +51,7 @@ a {
 
 .shop-container {
   font-size: 16px;
+  overflow-x: hidden;
   width: 100%;
   height: 100%;
 }

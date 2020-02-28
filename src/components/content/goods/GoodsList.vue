@@ -9,10 +9,10 @@
         class="goods-list-item"
         v-for="(item, index) in goods"
       >
-        <img @load="imgLoad" alt="" v-lazy="showImage(index)" />
+        <img @load="imgLoad" alt="" v-lazy="showImage(item)" />
         <div class="goods-info">
           <p>{{ item.title }}</p>
-          <span class="price">¥{{ item.price }}</span>
+          <span class="price">¥{{ Number(item.price).toFixed(2) }}</span>
           <span class="collect">{{ item.cfav }}</span>
         </div>
       </div>
@@ -44,15 +44,12 @@ export default {
     },
     // 跳转到详情页
     goodItemClick(item) {
-      if (item.iid) {
-        this.$router.push(`/detail/${item.iid}`).catch(err => {});
-      } else {
-        this.$router.go(0);
-      }
+      if (item.iid) return this.$router.push(`/detail/${item.iid}`);
+      this.$toast(item.title);
     },
     // 动态显示图片
-    showImage(index) {
-      return this.goods[index].img || this.goods[index].image || this.goods[index].show.img;
+    showImage(item) {
+      return item.img || item.image || item.show.img;
     }
   }
 };
