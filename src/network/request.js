@@ -1,10 +1,9 @@
 import axios from "axios";
-import qs from "qs";
 import { Toast } from "vant";
 import Loading from "../store/index";
 
-// 此接口为本地接口,真实接口请联系微信coderwhy001
-const url = "http://127.0.0.1:5000";
+// 本接口为测试接口,真实接口请联系coderwhy001
+const url = "http://127.0.0.1:8000/api";
 
 let config = {
   baseURL: url
@@ -32,10 +31,8 @@ _axios.interceptors.request.use(
 // 响应拦截
 _axios.interceptors.response.use(
   res => {
-    if (res.status === 200 || res.status === 201) {
-      Toast.clear();
-      return res.data;
-    }
+    Toast.clear();
+    return res.data;
   },
   err => {
     Toast.clear();
@@ -43,6 +40,5 @@ _axios.interceptors.response.use(
   }
 );
 
-// 全局注册axios qs
+// 全局注册axios
 window.axios = _axios;
-window.qs = qs;

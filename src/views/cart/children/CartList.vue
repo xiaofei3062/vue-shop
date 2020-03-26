@@ -106,9 +106,7 @@ export default {
               this.checkedAll = false;
             }, 1500);
           })
-          .catch(() => {
-            return false;
-          });
+          .catch(err => err);
       }
     }
   },

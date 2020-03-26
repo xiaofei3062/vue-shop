@@ -29,14 +29,14 @@ export default {
       default: 8
     }
   },
-  mounted: function() {
+  mounted: function () {
     setTimeout(this._autoLayout, 20);
   },
-  updated: function() {
+  updated: function () {
     this._autoLayout();
   },
   methods: {
-    _autoLayout: function() {
+    _autoLayout: function () {
       // 1.获取gridEl和children
       let gridEl = this.$refs.gridView;
       let children = gridEl.children;

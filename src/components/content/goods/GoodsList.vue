@@ -45,9 +45,9 @@ export default {
     // 跳转到详情页
     goodItemClick(item) {
       if (item.iid) {
-        this.$router.push(`/detail/${item.iid}`).catch(err => {});
+        this.$router.push(`/detail/${item.iid}`);
       } else {
-        this.$router.go(0);
+        this.$toast(item.title);
       }
     },
     // 动态显示图片

@@ -14,7 +14,6 @@ export default {
   props: {
     swiperList: {
       type: Array,
-      // default默认值需要一个函数return一个默认值
       default() {
         return [];
       }
