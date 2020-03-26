@@ -1,7 +1,7 @@
 // 防抖函数,解决重复频繁调用问题
 export function debounce(fn, delay) {
   let timer = null;
-  return function(...args) {
+  return function (...args) {
     if (timer) {
       clearTimeout(timer);
     }
