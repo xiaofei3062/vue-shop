@@ -1,6 +1,6 @@
 <template>
   <div class="swiper-list">
-    <van-swipe :autoplay="4000">
+    <van-swipe :autoplay="4000" indicator-color="#ff0000">
       <van-swipe-item :key="index" v-for="(item, index) in swiperList">
         <img :src="item" @load="swiperLoad" alt="" />
       </van-swipe-item>
@@ -41,26 +41,21 @@ export default {
   width: 10px;
   height: 10px;
   opacity: 0.8;
-  background-color: white;
-}
-
-.swiper-list /deep/ .van-swipe__indicator--active {
-  background-color: red;
-}
-
-/* 取消vant的相对定位 */
-.swiper-list /deep/ .van-swipe {
-  position: unset;
+  border-radius: 100%;
+  background-color: #ffffff;
 }
 
 .swiper-list {
-  position: relative;
   overflow: hidden;
   width: 100%;
   height: 300px;
 }
 
 .swiper-list img {
+  display: block;
   width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: center top;
 }
 </style>

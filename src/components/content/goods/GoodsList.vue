@@ -1,6 +1,6 @@
 <template>
   <div class="goods-list-box">
-    <p v-show="isRecommend">推荐商品</p>
+    <p class="recommend" v-show="isRecommend">推荐商品</p>
     <div class="goods-list">
       <!-- 循环部分 -->
       <div
@@ -9,7 +9,7 @@
         class="goods-list-item"
         v-for="(item, index) in goods"
       >
-        <img @load="imgLoad" alt="" v-lazy="showImage(index)" />
+        <img @load="imgLoad" alt="" v-lazy="showImage(item)" />
         <div class="goods-info">
           <p>{{ item.title }}</p>
           <span class="price">¥{{ item.price }}</span>
@@ -51,8 +51,8 @@ export default {
       }
     },
     // 动态显示图片
-    showImage(index) {
-      return this.goods[index].img || this.goods[index].image || this.goods[index].show.img;
+    showImage(item) {
+      return item.img || item.image || item.show.img;
     }
   }
 };
@@ -63,7 +63,7 @@ export default {
   width: 100%;
 }
 
-.goods-list-box p {
+.goods-list-box .recommend {
   font-size: 15px;
   margin-top: 10px;
   padding-left: 10px;
@@ -79,29 +79,30 @@ export default {
 }
 
 .goods-list-item {
+  font-size: 14px;
   position: relative;
-  width: 48%;
-  padding-bottom: 40px;
+  width: 170px;
+  padding-bottom: 4px;
 }
 
 .goods-list-item img {
-  width: 100%;
+  display: block;
+  width: 170px;
+  height: 256px;
   border-radius: 5px;
+  object-fit: cover;
 }
 
 .goods-info {
   font-size: 14px;
-  position: absolute;
-  right: 0;
-  bottom: 5px;
-  left: 0;
   overflow: hidden;
+  margin-top: 4px;
   text-align: center;
 }
 
 .goods-info p {
   overflow: hidden;
-  margin-bottom: 3px;
+  margin-bottom: 5px;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
@@ -117,8 +118,8 @@ export default {
 
 .goods-info .collect::before {
   position: absolute;
-  top: 0;
-  left: -15px;
+  top: 2px;
+  left: -16px;
   width: 14px;
   height: 14px;
   content: "";
