@@ -1,10 +1,13 @@
 module.exports = {
   productionSourceMap: false,
-  publicPath: "./",
+  publicPath: process.env.NODE_ENV === "production" ? "./" : "/",
   chainWebpack: config => {
     // 发布阶段打包入口
     config.when(process.env.NODE_ENV === "production", config => {
-      config.entry("app").clear().add("./src/main-prod.js");
+      config
+        .entry("app")
+        .clear()
+        .add("./src/main-prod.js");
 
       // 配置cdn依赖
       config.set("externals", {
@@ -21,7 +24,10 @@ module.exports = {
     });
     // 开发阶段打包入口
     config.when(process.env.NODE_ENV === "development", config => {
-      config.entry("app").clear().add("./src/main-dev.js");
+      config
+        .entry("app")
+        .clear()
+        .add("./src/main-dev.js");
       // 是否发布模式,否
       config.plugin("html").tap(args => {
         args[0].isProd = false;
