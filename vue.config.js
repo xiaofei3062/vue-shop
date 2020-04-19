@@ -1,6 +1,6 @@
 module.exports = {
   productionSourceMap: false,
-  publicPath: process.env.NODE_ENV === "production" ? "./" : "/",
+  publicPath: process.env.NODE_ENV === "production" ? "/shop" : "/",
   chainWebpack: config => {
     // 发布阶段打包入口
     config.when(process.env.NODE_ENV === "production", config => {
