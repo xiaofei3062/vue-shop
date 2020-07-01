@@ -30,6 +30,7 @@ export default {
   },
   methods: {
     tabControlClick(index) {
+      if (this.curIndex === index) return;
       this.curIndex = index;
       this.$emit("tabClick", index);
     }

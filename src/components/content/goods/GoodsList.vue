@@ -7,6 +7,7 @@
         :key="index"
         @click="goodItemClick(item)"
         class="goods-list-item"
+        :class="goodsHeight ? 'item-height' : 'item-height2'"
         v-for="(item, index) in goods"
       >
         <img @load="imgLoad" alt="" v-lazy="showImage(item)" />
@@ -35,6 +36,10 @@ export default {
       default() {
         return false;
       }
+    },
+    goodsHeight: {
+      type: Boolean,
+      default: true
     }
   },
   methods: {
@@ -81,14 +86,22 @@ export default {
 .goods-list-item {
   font-size: 14px;
   position: relative;
-  width: 170px;
+  width: 48%;
   padding-bottom: 4px;
+}
+
+.goods-list-item .item-height {
+  height: 256px;
+}
+
+.goods-list-item .item-height2 {
+  height: 200px;
 }
 
 .goods-list-item img {
   display: block;
-  width: 170px;
-  height: 256px;
+  width: 100%;
+  height: 100%;
   border-radius: 5px;
   object-fit: cover;
 }

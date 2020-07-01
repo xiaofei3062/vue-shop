@@ -6,10 +6,10 @@ module.exports = {
       rootValue: 37.5,
       unitPrecision: 6,
       propList: ["*"],
-      selectorBlackList: [".ignore", ".hairlines"],
+      selectorBlackList: [".hairlines"],
       replace: true,
       mediaQuery: true,
-      minPixelValue: 1
+      minPixelValue: 2
     },
     cssnano: {
       "cssnano-preset-advanced": {

@@ -14,15 +14,15 @@
     "cssnano": "^4.1.10",
     "postcss-import": "^12.0.1",
     "postcss-preset-env": "^6.7.0",
-    "postcss-pxtorem": "^4.0.1",
-    "vant": "^2.6.2",
+    "postcss-pxtorem": "^5.1.1",
+    "vant": "^2.8.7",
     "vue": "^2.6.11",
-    "vue-router": "^3.1.6",
-    "vuex": "^3.2.0"
+    "vue-router": "^3.3.4",
+    "vuex": "^3.5.1"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^4.3.1",
-    "@vue/cli-service": "^4.3.1",
+    "@vue/cli-plugin-babel": "^4.4.6",
+    "@vue/cli-service": "^4.4.6",
     "vue-template-compiler": "^2.6.11"
   },
   "browserslist": [

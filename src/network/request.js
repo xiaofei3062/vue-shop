@@ -3,10 +3,11 @@ import { Toast } from "vant";
 import Loading from "../store/index";
 
 // 本接口为测试接口,真实接口请联系coderwhy001
-const url = "http://127.0.0.1:8000/api";
+const url = "xxx";
 
 let config = {
-  baseURL: url
+  baseURL: url,
+  timeout: 10000
 };
 
 const _axios = axios.create(config);

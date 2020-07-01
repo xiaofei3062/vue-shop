@@ -5,9 +5,9 @@
     </nav-bar>
     <slide-bar :slide-bar-list="categoryList" @slideBarItemClick="slideBarItemClick" />
     <scroll class="scroll-height">
-      <subcategory :category-list="subcategoryList[currentIndex]" />
+      <subcategory :category-list="subcategoryList" />
       <tab-control :titles="titleList" @tabClick="tabClick" ref="tabControl" />
-      <goods-list :goods="categoryDetailList" />
+      <goods-list :goods="categoryDetailList" :goods-height="false" />
     </scroll>
   </div>
 </template>
@@ -31,42 +31,35 @@ export default {
       // 分类侧边栏数据
       categoryList: [],
       titleList: ["流行", "新款", "精选"],
-      currentIndex: 0,
-      // 存储key
-      keyList: []
+      currentIndex: 0
     };
   },
   components: { GoodsList, TabControl, Scroll, Subcategory, NavBar, SlideBar },
   methods: {
     slideBarItemClick({ maitKey, index }) {
+      // 防止反复请求
+      if (this.currentIndex === index) return;
       this.currentIndex = index;
       // 每次切换分类初始化tabControl的下标
       this.$refs.tabControl.curIndex = 0;
       // 请求对应的推荐列表
       this.getCategoryDetail(this.categoryList[this.currentIndex].miniWallkey, "pop");
-      // 如果keyList中存在maitKey证明数据已经请求过了
-      if (this.keyList.includes(maitKey)) return this.$store.commit("setLoading", false);
-      this.$store.commit("setLoading", true);
-      // 如果不存在请求数据并且存储key
-      this.keyList[index] = maitKey;
-      this.getSubcategory(this.categoryList[this.currentIndex].maitKey, index);
+      this.getSubcategory(maitKey);
     },
     getCategory() {
       getCategory().then(res => {
         // console.log(res.data.category.list);
         this.categoryList = res.data.category.list;
         this.$nextTick(() => {
-          this.getSubcategory(this.categoryList[0].maitKey, 0);
+          this.getSubcategory(this.categoryList[0].maitKey);
           this.getCategoryDetail(this.categoryList[0].miniWallkey, "pop");
-          // 初始化push第一个key进去
-          this.keyList.push(this.categoryList[0].maitKey);
         });
       });
     },
-    getSubcategory(key, index) {
+    getSubcategory(key) {
       getSubcategory(key).then(res => {
         // console.log(res.data.list);
-        this.subcategoryList[index] = res.data.list;
+        this.subcategoryList = res.data.list;
       });
     },
     getCategoryDetail(key, type) {
@@ -76,7 +69,6 @@ export default {
       });
     },
     tabClick(index) {
-      this.$store.commit("setLoading", true);
       const typeList = ["pop", "new", "sell"];
       // 切换类型数据
       this.getCategoryDetail(this.categoryList[this.currentIndex].miniWallkey, typeList[index]);
@@ -85,8 +77,7 @@ export default {
   created() {
     this.getCategory();
   },
-  deactivated() {
-    // 每次离开恢复loading加载
+  activated() {
     this.$store.commit("setLoading", true);
   }
 };
