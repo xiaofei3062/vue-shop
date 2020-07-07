@@ -7,10 +7,14 @@
         :key="index"
         @click="goodItemClick(item)"
         class="goods-list-item"
-        :class="goodsHeight ? 'item-height' : 'item-height2'"
         v-for="(item, index) in goods"
       >
-        <img @load="imgLoad" alt="" v-lazy="showImage(item)" />
+        <img
+          @load="imgLoad"
+          alt=""
+          v-lazy="showImage(item)"
+          :class="goodsHeight ? 'item-height' : 'item-height2'"
+        />
         <div class="goods-info">
           <p>{{ item.title }}</p>
           <span class="price">¥{{ item.price }}</span>
@@ -90,20 +94,19 @@ export default {
   padding-bottom: 4px;
 }
 
-.goods-list-item .item-height {
-  height: 256px;
-}
-
-.goods-list-item .item-height2 {
-  height: 200px;
-}
-
 .goods-list-item img {
   display: block;
   width: 100%;
-  height: 100%;
   border-radius: 5px;
   object-fit: cover;
+}
+
+.goods-list-item img.item-height {
+  height: 250px;
+}
+
+.goods-list-item img.item-height2 {
+  height: 180px;
 }
 
 .goods-info {

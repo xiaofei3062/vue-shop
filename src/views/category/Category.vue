@@ -59,13 +59,13 @@ export default {
     getSubcategory(key) {
       getSubcategory(key).then(res => {
         // console.log(res.data.list);
-        this.subcategoryList = res.data.list;
+        this.subcategoryList = [...res.data.list];
       });
     },
     getCategoryDetail(key, type) {
       getCategoryDetail(key, type).then(res => {
         // console.log(res);
-        this.categoryDetailList = res;
+        this.categoryDetailList = [...res];
       });
     },
     tabClick(index) {

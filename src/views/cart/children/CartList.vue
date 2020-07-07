@@ -4,7 +4,7 @@
       <!-- 循环部分 -->
       <div :key="index" class="shop-item" v-for="(item, index) in cartList">
         <div class="item-selector">
-          <van-checkbox @change="itemChange" v-model="item.checked" />
+          <van-checkbox @change="handleCheckedItem" v-model="item.checked" />
         </div>
         <div class="item-img">
           <img :src="item.image" alt="商品图片" />
@@ -23,13 +23,13 @@
     <!-- 底部订单栏 -->
     <div class="cart-bottom-bar">
       <div class="cart-bottom-check">
-        <van-checkbox @click="checkedAllClick" class="checked-all" v-model="checkedAll">
+        <van-checkbox @click="handleCheckedAll" class="checked-all" v-model="checkedAll">
           全选
         </van-checkbox>
       </div>
       <div class="cart-bottom-price">
         合计：
-        <span>¥ {{ Number(totalPrice).toFixed(2) }}</span>
+        <span>¥ {{ totalPrice }}</span>
         元
       </div>
       <div class="cart-bottom-btn">
@@ -56,12 +56,11 @@ export default {
     // 购物车总价
     totalPrice() {
       return this.cartList
-        .filter(item => {
-          return item.checked === true;
-        })
+        .filter(item => item.checked)
         .reduce((prev, item) => {
           return prev + item.price * item.count;
-        }, 0);
+        }, 0)
+        .toFixed(2);
     },
     checkedLength() {
       return this.cartList.filter(item => item.checked === true).length;
@@ -70,11 +69,11 @@ export default {
   methods: {
     ...mapMutations(["clearCartList", "setCartList"]),
     // 全选
-    checkedAllClick() {
-      this.cartList.forEach(item => (item.checked = !this.checkedAll));
+    handleCheckedAll() {
+      this.cartList.forEach(item => (item.checked = this.checkedAll));
     },
     // 反选
-    itemChange() {
+    handleCheckedItem() {
       let result = this.cartList.filter(item => item.checked === true);
       this.checkedAll = result.length > 0 && result.length === this.cartList.length;
     },
