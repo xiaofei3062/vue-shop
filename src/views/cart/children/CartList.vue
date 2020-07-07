@@ -57,13 +57,11 @@ export default {
     totalPrice() {
       return this.cartList
         .filter(item => item.checked)
-        .reduce((prev, item) => {
-          return prev + item.price * item.count;
-        }, 0)
+        .reduce((prev, item) => prev + item.price * item.count, 0)
         .toFixed(2);
     },
     checkedLength() {
-      return this.cartList.filter(item => item.checked === true).length;
+      return this.cartList.filter(item => item.checked).length;
     }
   },
   methods: {
@@ -74,7 +72,7 @@ export default {
     },
     // 反选
     handleCheckedItem() {
-      let result = this.cartList.filter(item => item.checked === true);
+      let result = this.cartList.filter(item => item.checked);
       this.checkedAll = result.length > 0 && result.length === this.cartList.length;
     },
     // 按钮提交
